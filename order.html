@@ -5,10 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>พุงกาง – Orders</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .tab-btn {
+    position: relative;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B7A8D;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    transition: color 0.18s;
+    white-space: nowrap;
+  }
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #1A2333;
+    border-radius: 2px 2px 0 0;
+    opacity: 0;
+    transition: opacity 0.18s;
+  }
+  .tab-btn.active {
+    color: #1A2333;
+  }
+  .tab-btn.active::after {
+    opacity: 1;
+  }
+  .tab-btn:hover:not(.active) {
+    color: #3D4A5C;
+  }
+</style>
 </head>
 <body class="font-sans bg-[#E4E7EC] m-0 p-0 box-border text-[#1A2333]">
 <div class="flex h-screen bg-[#E4E7EC] overflow-hidden">
   
+  <!-- SIDEBAR -->
   <div class="w-[210px] bg-[#E8EBF0] flex flex-col shrink-0 border-r border-[#C8CDD6]">
     <div class="p-[14px_16px] border-b border-[#C8CDD6] flex items-center gap-2.5">
       <div class="w-[34px] h-[34px] flex items-center justify-center shrink-0">
@@ -33,13 +73,13 @@
       <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Operations</div>
       
       <a href="table.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
-<svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-  <rect x="8" y="8" width="8" height="8" rx="2"></rect>
-  <rect x="3" y="10" width="2" height="4" rx="1"></rect>
-  <rect x="19" y="10" width="2" height="4" rx="1"></rect>
-  <rect x="10" y="3" width="4" height="2" rx="1"></rect>
-  <rect x="10" y="19" width="4" height="2" rx="1"></rect>
-</svg>
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <rect x="8" y="8" width="8" height="8" rx="2"></rect>
+          <rect x="3" y="10" width="2" height="4" rx="1"></rect>
+          <rect x="19" y="10" width="2" height="4" rx="1"></rect>
+          <rect x="10" y="3" width="4" height="2" rx="1"></rect>
+          <rect x="10" y="19" width="4" height="2" rx="1"></rect>
+        </svg>
         Tables
       </a>
       
@@ -94,8 +134,10 @@
     </div>
   </div>
 
+  <!-- MAIN CONTENT -->
   <div class="flex-1 flex flex-col overflow-hidden">
     
+    <!-- TOP NAV BAR -->
     <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-5 gap-2.5 shrink-0 z-[60]">
       
       <div class="relative">
@@ -192,219 +234,374 @@
       </div>
     </div>
 
-    <div class="pt-5 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex items-end justify-between shrink-0">
-      <div>
-        <div class="text-[20px] font-medium text-[#1A2333]">Order Management</div>
-        <div class="text-[12px] text-[#6B7A8D] mt-0.5">Track active orders and view historical transactions</div>
+    <!-- PAGE HEADER + TAB BAR -->
+    <div class="bg-white border-b border-[#C8CDD6] shrink-0">
+      <!-- Title row -->
+      <div class="pt-5 px-5 pb-0 flex items-end justify-between">
+        <div>
+          <div class="text-[20px] font-medium text-[#1A2333]">Order Management</div>
+          <div class="text-[12px] text-[#6B7A8D] mt-0.5">Track active orders and view historical transactions</div>
+        </div>
+        <div class="flex items-center gap-3 pb-3">
+          <button class="text-[12px] py-[6px] px-[14px] rounded-lg border border-transparent bg-[#3D4A5C] text-white font-medium cursor-pointer hover:bg-[#2C3643] flex items-center gap-1.5 shadow-sm">
+            <svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            New Order
+          </button>
+        </div>
       </div>
-      <div class="flex items-center gap-3">
-        <button class="text-[12px] py-[6px] px-[14px] rounded-lg border border-transparent bg-[#3D4A5C] text-white font-medium cursor-pointer hover:bg-[#2C3643] flex items-center gap-1.5 shadow-sm">
-          <svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          New Order
+
+      <!-- Tab bar -->
+      <div class="flex items-end px-3 gap-1">
+        <button class="tab-btn active" onclick="switchTab('active')" id="tab-btn-active">
+          Active Orders
+          <span class="ml-1.5 bg-[#E24B4A] text-white text-[10px] py-[1px] px-[6px] rounded-full align-middle">7</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('historical')" id="tab-btn-historical">
+          Historical Orders
         </button>
       </div>
     </div>
 
-    <div class="flex-1 overflow-y-auto p-[18px] flex flex-col gap-6">
-      
-      <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm">
-        <div class="px-5 py-4 border-b border-[#E8EBF0] flex justify-between items-center bg-[#FCFDFE]">
-          <h2 class="text-[14px] font-semibold text-[#1A2333] flex items-center gap-2">
-            Active Orders 
-            <span class="bg-[#E24B4A] text-white text-[10px] py-[1px] px-[6px] rounded-full">7</span>
-          </h2>
-        </div>
-        
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse whitespace-nowrap">
-            <thead>
-              <tr class="bg-[#F9FAFB] text-[#6B7A8D] text-[11px] uppercase tracking-wider border-b border-[#E8EBF0]">
-                <th class="px-5 py-3 font-medium">Order ID</th>
-                <th class="px-5 py-3 font-medium">Date & Time</th>
-                <th class="px-5 py-3 font-medium">Type</th>
-                <th class="px-5 py-3 font-medium">Table / Staff</th>
-                <th class="px-5 py-3 font-medium text-right">Subtotal</th>
-                <th class="px-5 py-3 font-medium text-right">Disc / Tax</th>
-                <th class="px-5 py-3 font-medium text-right">Total Price</th>
-                <th class="px-5 py-3 font-medium text-center">Status</th>
-              </tr>
-            </thead>
-            <tbody class="text-[12px] text-[#1A2333]">
-              
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium">#ORD-1042</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 13:12</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] px-2 py-0.5 rounded-md font-medium">In-Restaurant</span>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span>Table 02</span>
-                    <span class="text-[10px] text-[#9AA3AE]">Staff: TS</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D]">฿225.00</td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
-                  <div>- ฿0.00</div>
-                  <div>+ ฿15.75</div>
-                </td>
-                <td class="px-5 py-3 text-right font-medium">฿240.75</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] font-medium px-2 py-1 rounded-full">Cooking</span>
-                </td>
-              </tr>
+    <!-- TAB CONTENT AREA -->
+    <div class="flex-1 overflow-hidden flex flex-col">
 
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium">#ORD-1044</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 13:05</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[10px] px-2 py-0.5 rounded-md font-medium">Delivery</span>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span class="text-[#9AA3AE]">-</span>
-                    <span class="text-[10px] text-[#9AA3AE]">Staff: JD</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D]">฿570.00</td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
-                  <div class="text-[#E24B4A]">- ฿50.00 <span class="text-[9px]">(PROMO)</span></div>
-                  <div>+ ฿39.90</div>
-                </td>
-                <td class="px-5 py-3 text-right font-medium">฿559.90</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="bg-[#D0D5DE] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">New Order</span>
-                </td>
-              </tr>
+      <!-- ACTIVE ORDERS TAB -->
+      <div id="tab-active" class="tab-content active flex-1 overflow-y-auto p-[18px]">
+        <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm h-full">
+          <div class="overflow-x-auto flex-1">
+            <table class="w-full text-left border-collapse whitespace-nowrap">
+              <thead>
+                <tr class="bg-[#F9FAFB] text-[#6B7A8D] text-[11px] uppercase tracking-wider border-b border-[#E8EBF0]">
+                  <th class="px-5 py-3 font-medium">Order ID</th>
+                  <th class="px-5 py-3 font-medium">Date & Time</th>
+                  <th class="px-5 py-3 font-medium">Type</th>
+                  <th class="px-5 py-3 font-medium">Table / Staff</th>
+                  <th class="px-5 py-3 font-medium text-right">Subtotal</th>
+                  <th class="px-5 py-3 font-medium text-right">Disc / Tax</th>
+                  <th class="px-5 py-3 font-medium text-right">Total Price</th>
+                  <th class="px-5 py-3 font-medium text-center">Status</th>
+                </tr>
+              </thead>
+              <tbody class="text-[12px] text-[#1A2333]">
+                
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1042</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 13:12</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] px-2 py-0.5 rounded-md font-medium">In-Restaurant</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span>Table 02</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: TS</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿225.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div>- ฿0.00</div>
+                    <div>+ ฿15.75</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿240.75</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] font-medium px-2 py-1 rounded-full">Cooking</span>
+                  </td>
+                </tr>
 
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium">#ORD-1045</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 13:00</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] px-2 py-0.5 rounded-md font-medium">Take Away</span>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span class="text-[#9AA3AE]">-</span>
-                    <span class="text-[10px] text-[#9AA3AE]">Staff: TS</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D]">฿130.00</td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
-                  <div>- ฿0.00</div>
-                  <div>+ ฿9.10</div>
-                </td>
-                <td class="px-5 py-3 text-right font-medium">฿139.10</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] font-medium px-2 py-1 rounded-full">Ready</span>
-                </td>
-              </tr>
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1044</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 13:05</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[10px] px-2 py-0.5 rounded-md font-medium">Delivery</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-[#9AA3AE]">-</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: JD</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿570.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div class="text-[#E24B4A]">- ฿50.00 <span class="text-[9px]">(PROMO)</span></div>
+                    <div>+ ฿39.90</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿559.90</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#D0D5DE] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">New Order</span>
+                  </td>
+                </tr>
 
-            </tbody>
-          </table>
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1045</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 13:00</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] px-2 py-0.5 rounded-md font-medium">Take Away</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-[#9AA3AE]">-</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: TS</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿130.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div>- ฿0.00</div>
+                    <div>+ ฿9.10</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿139.10</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] font-medium px-2 py-1 rounded-full">Ready</span>
+                  </td>
+                </tr>
+
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1046</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 12:58</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] px-2 py-0.5 rounded-md font-medium">In-Restaurant</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span>Table 04</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: MK</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿360.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div>- ฿0.00</div>
+                    <div>+ ฿25.20</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿385.20</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#D0D5DE] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">New Order</span>
+                  </td>
+                </tr>
+
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1047</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 12:50</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[10px] px-2 py-0.5 rounded-md font-medium">Delivery</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-[#9AA3AE]">-</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: JD</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿480.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div class="text-[#E24B4A]">- ฿30.00 <span class="text-[9px]">(PROMO)</span></div>
+                    <div>+ ฿31.50</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿481.50</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] font-medium px-2 py-1 rounded-full">Cooking</span>
+                  </td>
+                </tr>
+
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1048</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 12:44</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] px-2 py-0.5 rounded-md font-medium">Take Away</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-[#9AA3AE]">-</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: TS</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿95.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div>- ฿0.00</div>
+                    <div>+ ฿6.65</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿101.65</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] font-medium px-2 py-1 rounded-full">Ready</span>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1049</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 12:40</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] px-2 py-0.5 rounded-md font-medium">In-Restaurant</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span>Table 07</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: MK</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿710.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div class="text-[#E24B4A]">- ฿50.00 <span class="text-[9px]">(VIP)</span></div>
+                    <div>+ ฿46.20</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿706.20</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] font-medium px-2 py-1 rounded-full">Cooking</span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
-      <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm">
-        <div class="px-5 py-4 border-b border-[#E8EBF0] flex justify-between items-center bg-[#FCFDFE]">
-          <h2 class="text-[14px] font-semibold text-[#1A2333]">Historical Orders</h2>
-          <div class="flex gap-2">
-            <input type="date" class="text-[11px] border border-[#C8CDD6] rounded px-2 py-1 text-[#6B7A8D] outline-none" value="2026-04-21">
-            <button class="text-[11px] border border-[#C8CDD6] rounded px-3 py-1 text-[#6B7A8D] hover:bg-[#F9FAFB]">Export PDF</button>
+      <!-- HISTORICAL ORDERS TAB -->
+      <div id="tab-historical" class="tab-content flex-1 overflow-y-auto p-[18px]">
+        <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm h-full">
+          <!-- Toolbar inside card -->
+          <div class="px-5 py-3 border-b border-[#E8EBF0] flex justify-between items-center bg-[#FCFDFE] shrink-0">
+            <div class="flex gap-2">
+              <input type="date" class="text-[11px] border border-[#C8CDD6] rounded px-2 py-1 text-[#6B7A8D] outline-none" value="2026-04-21">
+              <button class="text-[11px] border border-[#C8CDD6] rounded px-3 py-1 text-[#6B7A8D] hover:bg-[#F9FAFB]">Export PDF</button>
+            </div>
           </div>
-        </div>
-        
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse whitespace-nowrap">
-            <thead>
-              <tr class="bg-[#F9FAFB] text-[#6B7A8D] text-[11px] uppercase tracking-wider border-b border-[#E8EBF0]">
-                <th class="px-5 py-3 font-medium">Order ID</th>
-                <th class="px-5 py-3 font-medium">Date & Time</th>
-                <th class="px-5 py-3 font-medium">Payment Time</th>
-                <th class="px-5 py-3 font-medium">Type</th>
-                <th class="px-5 py-3 font-medium">Table / Staff</th>
-                <th class="px-5 py-3 font-medium text-right">Subtotal</th>
-                <th class="px-5 py-3 font-medium text-right">Disc / Tax</th>
-                <th class="px-5 py-3 font-medium text-right">Total Price</th>
-                <th class="px-5 py-3 font-medium text-center">Status</th>
-              </tr>
-            </thead>
-            <tbody class="text-[12px] text-[#1A2333]">
-              
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium">#ORD-1040</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 12:45</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 13:10</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] px-2 py-0.5 rounded-md font-medium">In-Restaurant</span>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span>Table 01</span>
-                    <span class="text-[10px] text-[#9AA3AE]">Staff: TS</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D]">฿420.00</td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
-                  <div>- ฿0.00</div>
-                  <div>+ ฿29.40</div>
-                </td>
-                <td class="px-5 py-3 text-right font-medium">฿449.40</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="bg-[#D6DBE4] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">Paid</span>
-                </td>
-              </tr>
 
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium">#ORD-1039</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 11:30</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 12:15</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] px-2 py-0.5 rounded-md font-medium">Take Away</span>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span class="text-[#9AA3AE]">-</span>
-                    <span class="text-[10px] text-[#9AA3AE]">Staff: JD</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D]">฿820.00</td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
-                  <div class="text-[#E24B4A]">- ฿100.00 <span class="text-[9px]">(VIP)</span></div>
-                  <div>+ ฿50.40</div>
-                </td>
-                <td class="px-5 py-3 text-right font-medium">฿770.40</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="bg-[#D6DBE4] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">Paid</span>
-                </td>
-              </tr>
+          <div class="overflow-x-auto flex-1">
+            <table class="w-full text-left border-collapse whitespace-nowrap">
+              <thead>
+                <tr class="bg-[#F9FAFB] text-[#6B7A8D] text-[11px] uppercase tracking-wider border-b border-[#E8EBF0]">
+                  <th class="px-5 py-3 font-medium">Order ID</th>
+                  <th class="px-5 py-3 font-medium">Date & Time</th>
+                  <th class="px-5 py-3 font-medium">Payment Time</th>
+                  <th class="px-5 py-3 font-medium">Type</th>
+                  <th class="px-5 py-3 font-medium">Table / Staff</th>
+                  <th class="px-5 py-3 font-medium text-right">Subtotal</th>
+                  <th class="px-5 py-3 font-medium text-right">Disc / Tax</th>
+                  <th class="px-5 py-3 font-medium text-right">Total Price</th>
+                  <th class="px-5 py-3 font-medium text-center">Status</th>
+                </tr>
+              </thead>
+              <tbody class="text-[12px] text-[#1A2333]">
+                
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1040</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 12:45</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 13:10</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] px-2 py-0.5 rounded-md font-medium">In-Restaurant</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span>Table 01</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: TS</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿420.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div>- ฿0.00</div>
+                    <div>+ ฿29.40</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿449.40</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#D6DBE4] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">Paid</span>
+                  </td>
+                </tr>
 
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium">#ORD-1038</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 10:15</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 11:00</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[10px] px-2 py-0.5 rounded-md font-medium">Delivery</span>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span class="text-[#9AA3AE]">-</span>
-                    <span class="text-[10px] text-[#9AA3AE]">Staff: MK</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D]">฿570.00</td>
-                <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
-                  <div>- ฿0.00</div>
-                  <div>+ ฿39.90</div>
-                </td>
-                <td class="px-5 py-3 text-right font-medium">฿609.90</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="bg-[#D6DBE4] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">Delivered</span>
-                </td>
-              </tr>
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1039</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 11:30</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 12:15</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] px-2 py-0.5 rounded-md font-medium">Take Away</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-[#9AA3AE]">-</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: JD</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿820.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div class="text-[#E24B4A]">- ฿100.00 <span class="text-[9px]">(VIP)</span></div>
+                    <div>+ ฿50.40</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿770.40</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#D6DBE4] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">Paid</span>
+                  </td>
+                </tr>
 
-            </tbody>
-          </table>
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1038</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 10:15</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 11:00</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[10px] px-2 py-0.5 rounded-md font-medium">Delivery</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-[#9AA3AE]">-</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: MK</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿570.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div>- ฿0.00</div>
+                    <div>+ ฿39.90</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿609.90</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#D6DBE4] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">Delivered</span>
+                  </td>
+                </tr>
+
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1037</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 09:50</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 10:35</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] px-2 py-0.5 rounded-md font-medium">In-Restaurant</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span>Table 03</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: TS</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿310.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div>- ฿0.00</div>
+                    <div>+ ฿21.70</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿331.70</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#D6DBE4] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">Paid</span>
+                  </td>
+                </tr>
+
+                <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                  <td class="px-5 py-3 font-medium">#ORD-1036</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 09:20</td>
+                  <td class="px-5 py-3 text-[#6B7A8D]">Today, 09:55</td>
+                  <td class="px-5 py-3">
+                    <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] px-2 py-0.5 rounded-md font-medium">Take Away</span>
+                  </td>
+                  <td class="px-5 py-3">
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-[#9AA3AE]">-</span>
+                      <span class="text-[10px] text-[#9AA3AE]">Staff: JD</span>
+                    </div>
+                  </td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D]">฿185.00</td>
+                  <td class="px-5 py-3 text-right text-[#6B7A8D] text-[11px]">
+                    <div>- ฿0.00</div>
+                    <div>+ ฿12.95</div>
+                  </td>
+                  <td class="px-5 py-3 text-right font-medium">฿197.95</td>
+                  <td class="px-5 py-3 text-center">
+                    <span class="bg-[#D6DBE4] text-[#1A2333] text-[10px] font-medium px-2 py-1 rounded-full">Paid</span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -412,6 +609,7 @@
   </div>
 </div>
 
+<!-- LOGOUT MODAL -->
 <div id="logout-modal" class="hidden fixed inset-0 bg-[#1A2333]/40 z-[100] flex items-center justify-center backdrop-blur-sm transition-opacity">
   <div class="bg-white rounded-xl p-6 w-80 shadow-lg flex flex-col items-center text-center gap-4 border border-[#C8CDD6]">
     <div class="w-12 h-12 bg-[#FCEBEB] rounded-full flex items-center justify-center">
@@ -423,6 +621,18 @@
 </div>
 
 <script>
+  // --- Tab Switching ---
+  function switchTab(tab) {
+    // Hide all tab contents
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    // Remove active from all tab buttons
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    // Show selected tab content
+    document.getElementById('tab-' + tab).classList.add('active');
+    // Activate selected tab button
+    document.getElementById('tab-btn-' + tab).classList.add('active');
+  }
+
   // --- Popup & Modal Logic ---
   document.addEventListener('click', function(event) {
     const popups = [
