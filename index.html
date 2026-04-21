@@ -20,7 +20,7 @@
       </div>
       <div>
         <div class="text-[14px] font-medium text-[#1A2333]">พุงกาง</div>
-        <div class="text-[10px] text-[#6B7A8D]">SaaS Platform</div>
+        <div class="text-[10px] text-[#6B7A8D]">Restaurant Platform</div>
       </div>
     </div>
 
@@ -34,11 +34,11 @@
       
       <a href="table.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
         <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <rect x="5" y="8" width="14" height="8" rx="2"></rect>
-          <path d="M8 5v3"></path>
-          <path d="M16 5v3"></path>
-          <path d="M8 16v3"></path>
-          <path d="M16 16v3"></path>
+          <path d="M4 10h16"></path>
+          <path d="M12 10v10"></path>
+          <path d="M8 20h8"></path>
+          <path d="M6 14v-4a2 2 0 0 0-2-2"></path>
+          <path d="M18 14v-4a2 2 0 0 1 2-2"></path>
         </svg>
         Tables
       </a>
@@ -87,7 +87,7 @@
     </div>
     
     <div class="p-2 border-t border-[#C8CDD6]">
-      <a href="#" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+      <a href="#" onclick="showLogoutAlert(event)" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
         <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
         Log out
       </a>
@@ -96,17 +96,100 @@
 
   <div class="flex-1 flex flex-col overflow-hidden">
     
-    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-5 gap-2.5 shrink-0">
-      <div class="flex items-center gap-2.5">
-        <div class="w-[28px] h-[28px] rounded-full bg-[#D6DBE4] flex items-center justify-center text-[11px] font-medium text-[#1A2333]">TS</div>
-        <div>
-          <div class="text-[13px] font-medium text-[#1A2333]">Thanachot S.</div>
-          <div class="text-[10px] text-[#9AA3AE]">Owner</div>
+    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-5 gap-2.5 shrink-0 z-[60]">
+      
+      <div class="relative">
+        <div id="btn-profile" onclick="togglePopup('popup-profile')" class="flex items-center gap-2.5 cursor-pointer hover:bg-[#F9FAFB] p-1.5 -ml-1.5 rounded-lg transition-colors outline-none">
+          <div class="w-[28px] h-[28px] rounded-full bg-[#D6DBE4] flex items-center justify-center text-[11px] font-medium text-[#1A2333]">TS</div>
+          <div>
+            <div class="text-[13px] font-medium text-[#1A2333] leading-tight">Thanachot S.</div>
+            <div class="text-[10px] text-[#9AA3AE]">Owner</div>
+          </div>
+        </div>
+
+        <div id="popup-profile" class="hidden absolute top-[100%] left-0 mt-1 w-64 bg-white border border-[#C8CDD6] rounded-xl shadow-lg z-50 overflow-hidden">
+           <div class="px-4 py-3 border-b border-[#E8EBF0] bg-[#F9FAFB]">
+             <div class="flex items-center gap-3">
+               <div class="w-[40px] h-[40px] rounded-full bg-[#D6DBE4] flex items-center justify-center text-[14px] font-medium text-[#1A2333]">TS</div>
+               <div class="flex flex-col">
+                 <span class="font-semibold text-[14px] text-[#1A2333]">Thanachot S.</span>
+                 <span class="text-[11px] text-[#6B7A8D]">thanachot@pungkang.com</span>
+               </div>
+             </div>
+           </div>
+           <div class="p-2">
+              <div class="px-3 py-2 flex justify-between items-center">
+                 <span class="text-[12px] text-[#6B7A8D]">Role</span>
+                 <span class="text-[12px] font-medium text-[#3D4A5C]">Owner / Admin</span>
+              </div>
+              <div class="px-3 py-2 flex justify-between items-center border-t border-[#E8EBF0] mt-1 pt-2">
+                 <span class="text-[12px] text-[#6B7A8D]">Workspace</span>
+                 <span class="text-[12px] font-medium text-[#1A2333]">Bangkok Branch</span>
+              </div>
+           </div>
         </div>
       </div>
+
       <div class="flex-1"></div>
-      <svg class="w-[18px] h-[18px] fill-none stroke-[#6B7A8D] stroke-[1.5]" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
-      <svg class="w-[18px] h-[18px] fill-none stroke-[#6B7A8D] stroke-[1.5]" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      
+      <div class="flex items-center gap-2 relative">
+        
+        <div class="relative">
+          <button id="btn-notifications" onclick="togglePopup('popup-notifications')" class="p-1 rounded-lg hover:bg-[#E8EBF0] transition-colors relative cursor-pointer outline-none">
+            <svg class="w-[18px] h-[18px] fill-none stroke-[#6B7A8D] stroke-[1.5]" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+            <span class="absolute top-1 right-1 w-2 h-2 bg-[#E24B4A] rounded-full border border-white"></span>
+          </button>
+          
+          <div id="popup-notifications" class="hidden absolute top-[110%] right-0 mt-1 w-72 bg-white border border-[#C8CDD6] rounded-xl shadow-lg z-50 overflow-hidden">
+             <div class="px-4 py-2 border-b border-[#E8EBF0] font-semibold text-[13px] text-[#1A2333] bg-[#F9FAFB]">Notifications</div>
+             <div class="flex flex-col max-h-64 overflow-y-auto">
+                <div class="px-4 py-3 border-b border-[#E8EBF0] hover:bg-[#F9FAFB] cursor-pointer flex flex-col gap-1 transition-colors">
+                   <div class="flex justify-between items-center"><span class="text-[12px] font-medium text-[#1A2333]">Bill Requested</span><span class="text-[10px] text-[#E24B4A] font-medium">Just now</span></div>
+                   <div class="text-[11px] text-[#6B7A8D]">Table 05 has requested the check bill.</div>
+                </div>
+                <div class="px-4 py-3 border-b border-[#E8EBF0] hover:bg-[#F9FAFB] cursor-pointer flex flex-col gap-1 transition-colors">
+                   <div class="flex justify-between items-center"><span class="text-[12px] font-medium text-[#1A2333]">New Order to Accept</span><span class="text-[10px] text-[#1D9E75] font-medium">2m ago</span></div>
+                   <div class="text-[11px] text-[#6B7A8D]">Order #1046 is waiting for confirmation.</div>
+                </div>
+                <div class="px-4 py-3 hover:bg-[#F9FAFB] cursor-pointer flex flex-col gap-1 transition-colors">
+                   <div class="flex justify-between items-center"><span class="text-[12px] font-medium text-[#1A2333]">Delivery Status Update</span><span class="text-[10px] text-[#9AA3AE]">15m ago</span></div>
+                   <div class="text-[11px] text-[#6B7A8D]">Order #1038 arrived at customer location.</div>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <button id="btn-settings" onclick="togglePopup('popup-settings')" class="p-1 rounded-lg hover:bg-[#E8EBF0] transition-colors cursor-pointer outline-none">
+            <svg class="w-[18px] h-[18px] fill-none stroke-[#6B7A8D] stroke-[1.5]" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          </button>
+          
+          <div id="popup-settings" class="hidden absolute top-[110%] right-0 mt-1 w-56 bg-white border border-[#C8CDD6] rounded-xl shadow-lg z-50 overflow-hidden">
+             <div class="px-4 py-2 border-b border-[#E8EBF0] font-semibold text-[13px] text-[#1A2333] bg-[#F9FAFB]">Quick Settings</div>
+             <div class="flex flex-col p-2 gap-1">
+                
+                <div class="flex justify-between items-center px-2 py-2 hover:bg-[#F9FAFB] rounded-lg cursor-pointer transition-colors" onclick="toggleToggle(this)">
+                   <span class="text-[12px] text-[#1A2333]">Active Online Status</span>
+                   <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative toggle-bg transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm toggle-dot transition-all"></div></div>
+                </div>
+                
+                <div class="flex justify-between items-center px-2 py-2 hover:bg-[#F9FAFB] rounded-lg cursor-pointer transition-colors" onclick="toggleToggle(this)">
+                   <span class="text-[12px] text-[#1A2333]">Mute Mode</span>
+                   <div class="w-7 h-4 bg-[#C8CDD6] rounded-full relative toggle-bg transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute left-0.5 top-0.5 shadow-sm toggle-dot transition-all"></div></div>
+                </div>
+                
+                <div class="flex justify-between items-center px-2 py-2 hover:bg-[#F9FAFB] rounded-lg cursor-pointer transition-colors border-t border-[#E8EBF0] mt-1">
+                   <span class="text-[12px] text-[#1A2333]">Language</span>
+                   <select class="text-[11px] font-medium text-[#3D4A5C] bg-[#E8EBF0] px-2 py-1 rounded outline-none cursor-pointer">
+                      <option>English</option>
+                      <option>ภาษาไทย</option>
+                   </select>
+                </div>
+             </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <div class="pt-5 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex items-end justify-between">
@@ -114,13 +197,13 @@
         <div class="text-[20px] font-medium text-[#1A2333]">Dashboard</div>
         <div class="text-[12px] text-[#6B7A8D] mt-0.5">Showing data for restaurant management</div>
       </div>
-      <div class="flex items-center gap-1.5">
-        <button class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer">Today</button>
-        <button class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#B4BAC4] bg-[#D6DBE4] text-[#1A2333] font-medium cursor-pointer flex items-center gap-1.5">
+      <div class="flex items-center gap-1.5" id="period-selectors">
+        <button onclick="updateDashboard('today')" id="btn-today" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer">Today</button>
+        <button onclick="updateDashboard('week')" id="btn-week" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#B4BAC4] bg-[#D6DBE4] text-[#1A2333] font-medium cursor-pointer flex items-center gap-1.5">
           This week
           <svg class="w-[11px] h-[11px] fill-[#6B7A8D]" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
         </button>
-        <button class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer">This month</button>
+        <button onclick="updateDashboard('month')" id="btn-month" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer">This month</button>
       </div>
     </div>
 
@@ -132,17 +215,17 @@
             <div class="text-[11px] text-[#6B7A8D]">Total Revenue</div>
             <div class="w-[7px] h-[7px] rounded-full bg-[#1D9E75]"></div>
           </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">฿48,320</div>
-          <div class="text-[11px] mt-1 text-[#1D9E75]">↑ +12.4% vs last week</div>
+          <div id="metric-revenue" class="text-[21px] font-medium text-[#1A2333] leading-tight">฿48,320</div>
+          <div id="metric-revenue-change" class="text-[11px] mt-1 text-[#1D9E75]">↑ +12.4% vs last week</div>
         </div>
         
         <a href="order.html" class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px] block hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
           <div class="flex items-center justify-between mb-2">
-            <div class="text-[11px] text-[#6B7A8D]">Orders Today</div>
+            <div class="text-[11px] text-[#6B7A8D]">Orders <span id="orders-label">This Week</span></div>
             <div class="w-[7px] h-[7px] rounded-full bg-[#3D4A5C]"></div>
           </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">87</div>
-          <div class="text-[11px] mt-1 text-[#1D9E75]">↑ +8 vs yesterday</div>
+          <div id="metric-orders" class="text-[21px] font-medium text-[#1A2333] leading-tight">345</div>
+          <div id="metric-orders-change" class="text-[11px] mt-1 text-[#1D9E75]">↑ +12 vs last week</div>
         </a>
         
         <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
@@ -150,8 +233,8 @@
             <div class="text-[11px] text-[#6B7A8D]">Avg. Order Value</div>
             <div class="w-[7px] h-[7px] rounded-full bg-[#E24B4A]"></div>
           </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">฿555</div>
-          <div class="text-[11px] mt-1 text-[#E24B4A]">↓ -2.1% vs last week</div>
+          <div id="metric-aov" class="text-[21px] font-medium text-[#1A2333] leading-tight">฿555</div>
+          <div id="metric-aov-change" class="text-[11px] mt-1 text-[#E24B4A]">↓ -2.1% vs last week</div>
         </div>
         
         <a href="table.html" class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px] block hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
@@ -211,9 +294,10 @@
         <div class="flex flex-col gap-[14px]">
           <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-4 h-full">
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[13px] font-medium text-[#1A2333]">Revenue (Mon–Sun)</span>
+              <span id="chart-title" class="text-[13px] font-medium text-[#1A2333]">Revenue (Mon–Sun)</span>
             </div>
-            <div class="flex items-end gap-[5px] h-[78px] pb-1">
+            
+            <div id="chart-container" class="flex items-end gap-[5px] h-[78px] pb-1">
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[50px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Mon</div></div>
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[65px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Tue</div></div>
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[42px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Wed</div></div>
@@ -222,6 +306,7 @@
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[74px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Sat</div></div>
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[55px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Sun</div></div>
             </div>
+            
           </div>
         </div>
       </div>
@@ -307,5 +392,199 @@
     </div>
   </div>
 </div>
+
+<div id="logout-modal" class="hidden fixed inset-0 bg-[#1A2333]/40 z-[100] flex items-center justify-center backdrop-blur-sm transition-opacity">
+  <div class="bg-white rounded-xl p-6 w-80 shadow-lg flex flex-col items-center text-center gap-4 border border-[#C8CDD6]">
+    <div class="w-12 h-12 bg-[#FCEBEB] rounded-full flex items-center justify-center">
+      <svg class="w-6 h-6 stroke-[#E24B4A]" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+    </div>
+    <div class="text-[14px] font-medium text-[#1A2333]">You can not log out in testing environment.</div>
+    <button onclick="closeLogoutAlert()" class="w-full py-2 bg-[#D6DBE4] hover:bg-[#C8CDD6] text-[#1A2333] rounded-lg text-[13px] font-medium transition-colors outline-none cursor-pointer">Understood</button>
+  </div>
+</div>
+
+<script>
+  // --- Popup & Modal Logic ---
+  document.addEventListener('click', function(event) {
+    const popups = [
+      { btn: 'btn-notifications', popup: 'popup-notifications' },
+      { btn: 'btn-settings', popup: 'popup-settings' },
+      { btn: 'btn-profile', popup: 'popup-profile' }
+    ];
+
+    popups.forEach(p => {
+      const btn = document.getElementById(p.btn);
+      const popup = document.getElementById(p.popup);
+      if (btn && popup && !btn.contains(event.target) && !popup.contains(event.target)) {
+        popup.classList.add('hidden');
+      }
+    });
+  });
+
+  function togglePopup(id) {
+    const popupIds = ['popup-notifications', 'popup-settings', 'popup-profile'];
+    popupIds.forEach(popupId => {
+      if (popupId !== id) {
+        const popup = document.getElementById(popupId);
+        if(popup) popup.classList.add('hidden');
+      }
+    });
+    const targetPopup = document.getElementById(id);
+    if(targetPopup) targetPopup.classList.toggle('hidden');
+  }
+
+  function showLogoutAlert(e) {
+    e.preventDefault();
+    document.getElementById('logout-modal').classList.remove('hidden');
+  }
+
+  function closeLogoutAlert() {
+    document.getElementById('logout-modal').classList.add('hidden');
+  }
+
+  function toggleToggle(element) {
+    const bg = element.querySelector('.toggle-bg');
+    const dot = element.querySelector('.toggle-dot');
+    if(bg.classList.contains('bg-[#1D9E75]')) {
+      bg.classList.replace('bg-[#1D9E75]', 'bg-[#C8CDD6]');
+      dot.classList.remove('right-0.5');
+      dot.classList.add('left-0.5');
+    } else {
+      bg.classList.replace('bg-[#C8CDD6]', 'bg-[#1D9E75]');
+      dot.classList.remove('left-0.5');
+      dot.classList.add('right-0.5');
+    }
+  }
+
+  // --- Dashboard Data Logic ---
+  const dashboardData = {
+    today: {
+      revenue: "฿9,420",
+      revenueChange: "↑ +5.2% vs yesterday",
+      revenueColor: "#1D9E75",
+      ordersLabel: "Today",
+      orders: "87",
+      ordersChange: "↑ +8 vs yesterday",
+      ordersColor: "#1D9E75",
+      aov: "฿108",
+      aovChange: "↓ -1.5% vs yesterday",
+      aovColor: "#E24B4A",
+      chartTitle: "Revenue (Today by Hour)",
+      chartBars: [
+        { label: "10am", height: "30px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "11am", height: "45px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "12pm", height: "70px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "1pm", height: "80px", color: "#3D4A5C", textClass: "text-[#1A2333] font-medium" },
+        { label: "2pm", height: "55px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "3pm", height: "35px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "4pm", height: "20px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" }
+      ]
+    },
+    week: {
+      revenue: "฿48,320",
+      revenueChange: "↑ +12.4% vs last week",
+      revenueColor: "#1D9E75",
+      ordersLabel: "This Week",
+      orders: "345",
+      ordersChange: "↑ +12 vs last week",
+      ordersColor: "#1D9E75",
+      aov: "฿140",
+      aovChange: "↓ -2.1% vs last week",
+      aovColor: "#E24B4A",
+      chartTitle: "Revenue (Mon–Sun)",
+      chartBars: [
+        { label: "Mon", height: "50px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "Tue", height: "65px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "Wed", height: "42px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "Thu", height: "70px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "Fri", height: "80px", color: "#3D4A5C", textClass: "text-[#1A2333] font-medium" },
+        { label: "Sat", height: "74px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "Sun", height: "55px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" }
+      ]
+    },
+    month: {
+      revenue: "฿192,450",
+      revenueChange: "↑ +8.5% vs last month",
+      revenueColor: "#1D9E75",
+      ordersLabel: "This Month",
+      orders: "1,420",
+      ordersChange: "↑ +45 vs last month",
+      ordersColor: "#1D9E75",
+      aov: "฿135",
+      aovChange: "↑ +1.2% vs last month",
+      aovColor: "#1D9E75",
+      chartTitle: "Revenue (Weeks 1-4)",
+      chartBars: [
+        { label: "Wk 1", height: "60px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "Wk 2", height: "75px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" },
+        { label: "Wk 3", height: "80px", color: "#3D4A5C", textClass: "text-[#1A2333] font-medium" },
+        { label: "Wk 4", height: "68px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal" }
+      ]
+    }
+  };
+
+  const activeBtnClasses = "text-[12px] py-[5px] px-[11px] rounded-lg border border-[#B4BAC4] bg-[#D6DBE4] text-[#1A2333] font-medium cursor-pointer flex items-center gap-1.5 transition-colors";
+  const inactiveBtnClasses = "text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer hover:bg-[#E8EBF0] transition-colors";
+  const activeIconHtml = `<svg class="w-[11px] h-[11px] fill-[#6B7A8D]" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>`;
+
+  function updateDashboard(period) {
+    const data = dashboardData[period];
+    
+    document.getElementById('metric-revenue').innerText = data.revenue;
+    const revChange = document.getElementById('metric-revenue-change');
+    revChange.innerText = data.revenueChange;
+    revChange.style.color = data.revenueColor;
+
+    document.getElementById('orders-label').innerText = data.ordersLabel;
+    document.getElementById('metric-orders').innerText = data.orders;
+    const ordChange = document.getElementById('metric-orders-change');
+    ordChange.innerText = data.ordersChange;
+    ordChange.style.color = data.ordersColor;
+
+    document.getElementById('metric-aov').innerText = data.aov;
+    const aovChange = document.getElementById('metric-aov-change');
+    aovChange.innerText = data.aovChange;
+    aovChange.style.color = data.aovColor;
+
+    document.getElementById('chart-title').innerText = data.chartTitle;
+    const chartContainer = document.getElementById('chart-container');
+    
+    chartContainer.innerHTML = ''; 
+    data.chartBars.forEach(bar => {
+      const barHtml = `
+        <div class="flex-1 flex flex-col items-center gap-[3px]">
+          <div class="w-full rounded-t-[3px] transition-all duration-300" style="height:${bar.height}; background-color:${bar.color};"></div>
+          <div class="text-[10px] ${bar.textClass}">${bar.label}</div>
+        </div>
+      `;
+      chartContainer.innerHTML += barHtml;
+    });
+
+    const btnToday = document.getElementById('btn-today');
+    const btnWeek = document.getElementById('btn-week');
+    const btnMonth = document.getElementById('btn-month');
+
+    btnToday.className = inactiveBtnClasses;
+    btnToday.innerHTML = "Today";
+    
+    btnWeek.className = inactiveBtnClasses;
+    btnWeek.innerHTML = "This week";
+    
+    btnMonth.className = inactiveBtnClasses;
+    btnMonth.innerHTML = "This month";
+
+    if (period === 'today') {
+      btnToday.className = activeBtnClasses;
+      btnToday.innerHTML = `Today ${activeIconHtml}`;
+    } else if (period === 'week') {
+      btnWeek.className = activeBtnClasses;
+      btnWeek.innerHTML = `This week ${activeIconHtml}`;
+    } else if (period === 'month') {
+      btnMonth.className = activeBtnClasses;
+      btnMonth.innerHTML = `This month ${activeIconHtml}`;
+    }
+  }
+</script>
+
 </body>
 </html>
