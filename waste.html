@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>พุงกาง – Waste Log</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-[#E4E7EC] m-0 p-0 box-border text-[#1A2333]">
+<div class="flex h-screen bg-[#E4E7EC] overflow-hidden">
+  
+  <div class="w-[210px] bg-[#E8EBF0] flex flex-col shrink-0 border-r border-[#C8CDD6]">
+    <div class="p-[14px_16px] border-b border-[#C8CDD6] flex items-center gap-2.5">
+      <div class="w-[34px] h-[34px] flex items-center justify-center shrink-0">
+        <svg class="w-[28px] h-[28px]" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="10,4 20,14 10,24 0,14" fill="#9AA3AE" opacity="0.6"/>
+          <polygon points="22,4 32,14 22,24 12,14" fill="#9AA3AE" opacity="0.6"/>
+          <polygon points="16,10 26,20 16,30 6,20" fill="#6B7A8D" opacity="0.8"/>
+        </svg>
+      </div>
+      <div>
+        <div class="text-[14px] font-medium text-[#1A2333]">พุงกาง</div>
+        <div class="text-[10px] text-[#6B7A8D]">SaaS Platform</div>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto pb-4">
+      <a href="index.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] mt-2 mb-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Dashboard
+      </a>
+
+      <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Operations</div>
+      
+      <a href="table.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <rect x="5" y="8" width="14" height="8" rx="2"></rect>
+          <path d="M8 5v3"></path>
+          <path d="M16 5v3"></path>
+          <path d="M8 16v3"></path>
+          <path d="M16 16v3"></path>
+        </svg>
+        Tables
+      </a>
+      
+      <a href="order.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Orders
+        <span class="ml-auto bg-[#E24B4A] text-white text-[10px] py-[1px] px-[6px] rounded-full">7</span>
+      </a>
+      
+      <a href="menu.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        Menu
+      </a>
+
+      <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Inventory</div>
+      
+      <a href="stock.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        Stock
+      </a>
+      
+      <a href="waste.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] bg-[#D6DBE4] text-[#1A2333] font-medium decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        Waste
+      </a>
+
+      <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Business</div>
+      
+      <a href="promotion.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        Promotions
+      </a>
+      
+      <a href="customer.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        Customers
+      </a>
+
+      <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Credentials</div>
+
+      <a href="staff.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Staff
+      </a>
+    </div>
+    
+    <div class="p-2 border-t border-[#C8CDD6]">
+      <a href="#" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        Log out
+      </a>
+    </div>
+  </div>
+
+  <div class="flex-1 flex flex-col overflow-hidden">
+    
+    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-5 gap-2.5 shrink-0">
+      <div class="flex items-center gap-2.5">
+        <div class="w-[28px] h-[28px] rounded-full bg-[#D6DBE4] flex items-center justify-center text-[11px] font-medium text-[#1A2333]">TS</div>
+        <div>
+          <div class="text-[13px] font-medium text-[#1A2333]">Thanachot S.</div>
+          <div class="text-[10px] text-[#9AA3AE]">Owner</div>
+        </div>
+      </div>
+      <div class="flex-1"></div>
+      <svg class="w-[18px] h-[18px] fill-none stroke-[#6B7A8D] stroke-[1.5]" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+      <svg class="w-[18px] h-[18px] fill-none stroke-[#6B7A8D] stroke-[1.5]" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    </div>
+
+    <div class="pt-5 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex items-end justify-between shrink-0">
+      <div>
+        <div class="text-[20px] font-medium text-[#1A2333]">Waste Log</div>
+        <div class="text-[12px] text-[#6B7A8D] mt-0.5">Record expiring items, accidental damage, and order mistakes</div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="text-[12px] py-[6px] px-[14px] rounded-lg border border-transparent bg-[#E24B4A] text-white font-medium cursor-pointer hover:bg-[#C94241] flex items-center gap-1.5 shadow-sm">
+          <svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Record Waste
+        </button>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-[18px] flex flex-col gap-6">
+      
+      <div class="grid grid-cols-4 gap-2.5">
+        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-[11px] text-[#E24B4A] uppercase tracking-wider font-medium">Total Value Lost (This Month)</div>
+            <svg class="w-4 h-4 stroke-[#E24B4A]" fill="none" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+          </div>
+          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">฿1,425</div>
+        </div>
+        
+        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">Expired Items</div>
+            <svg class="w-4 h-4 stroke-[#6B7A8D]" fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">12</div>
+        </div>
+        
+        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">Kitchen Mistakes</div>
+            <svg class="w-4 h-4 stroke-[#6B7A8D]" fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+          </div>
+          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">4</div>
+        </div>
+        
+        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">Accidents / Spills</div>
+            <svg class="w-4 h-4 stroke-[#6B7A8D]" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          </div>
+          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">2</div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm">
+        <div class="px-5 py-4 border-b border-[#E8EBF0] flex justify-between items-center bg-[#FCFDFE]">
+          <h2 class="text-[14px] font-semibold text-[#1A2333]">Recent Waste Log</h2>
+          <div class="flex gap-2">
+            <input type="text" placeholder="Search item or reason..." class="text-[11px] border border-[#C8CDD6] rounded px-2 py-1 text-[#1A2333] outline-none w-48">
+            <button class="text-[11px] border border-[#C8CDD6] rounded px-3 py-1 text-[#6B7A8D] hover:bg-[#F9FAFB]">Filter</button>
+          </div>
+        </div>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse whitespace-nowrap">
+            <thead>
+              <tr class="bg-[#F9FAFB] text-[#6B7A8D] text-[11px] uppercase tracking-wider border-b border-[#E8EBF0]">
+                <th class="px-5 py-3 font-medium">Date & Time</th>
+                <th class="px-5 py-3 font-medium">Item / Ingredient</th>
+                <th class="px-5 py-3 font-medium">Category (Reason)</th>
+                <th class="px-5 py-3 font-medium text-right">Quantity</th>
+                <th class="px-5 py-3 font-medium text-right">Est. Value Lost</th>
+                <th class="px-5 py-3 font-medium">Recorded By</th>
+                <th class="px-5 py-3 font-medium text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody class="text-[12px] text-[#1A2333]">
+              
+              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                <td class="px-5 py-3 text-[#6B7A8D]">Today, 09:15</td>
+                <td class="px-5 py-3 font-medium">Burger Buns</td>
+                <td class="px-5 py-3">
+                  <span class="bg-[#FCEBEB] text-[#E24B4A] text-[10px] px-2 py-0.5 rounded-md font-medium">Expired</span>
+                </td>
+                <td class="px-5 py-3 text-right">15 pcs</td>
+                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿75.00</td>
+                <td class="px-5 py-3 text-[#6B7A8D]">Thanachot S.</td>
+                <td class="px-5 py-3 text-center">
+                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
+                </td>
+              </tr>
+
+              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                <td class="px-5 py-3 text-[#6B7A8D]">Yesterday, 14:30</td>
+                <td class="px-5 py-3 font-medium">Zinger Burger</td>
+                <td class="px-5 py-3">
+                  <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] px-2 py-0.5 rounded-md font-medium">Wrong Order</span>
+                </td>
+                <td class="px-5 py-3 text-right">1 portion</td>
+                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿90.00</td>
+                <td class="px-5 py-3 text-[#6B7A8D]">Staff: MK</td>
+                <td class="px-5 py-3 text-center">
+                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
+                </td>
+              </tr>
+
+              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                <td class="px-5 py-3 text-[#6B7A8D]">Yesterday, 11:00</td>
+                <td class="px-5 py-3 font-medium">Cooking Oil</td>
+                <td class="px-5 py-3">
+                  <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[10px] px-2 py-0.5 rounded-md font-medium">Accident / Spill</span>
+                </td>
+                <td class="px-5 py-3 text-right">2.5 L</td>
+                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿122.50</td>
+                <td class="px-5 py-3 text-[#6B7A8D]">Staff: JD</td>
+                <td class="px-5 py-3 text-center">
+                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
+                </td>
+              </tr>
+
+              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                <td class="px-5 py-3 text-[#6B7A8D]">19 Apr 2026, 08:00</td>
+                <td class="px-5 py-3 font-medium">Fresh Milk</td>
+                <td class="px-5 py-3">
+                  <span class="bg-[#FCEBEB] text-[#E24B4A] text-[10px] px-2 py-0.5 rounded-md font-medium">Expired</span>
+                </td>
+                <td class="px-5 py-3 text-right">3 L</td>
+                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿135.00</td>
+                <td class="px-5 py-3 text-[#6B7A8D]">Thanachot S.</td>
+                <td class="px-5 py-3 text-center">
+                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
+                </td>
+              </tr>
+
+              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+                <td class="px-5 py-3 text-[#6B7A8D]">18 Apr 2026, 15:45</td>
+                <td class="px-5 py-3 font-medium">French Fries</td>
+                <td class="px-5 py-3">
+                  <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[10px] px-2 py-0.5 rounded-md font-medium">Quality Control</span>
+                </td>
+                <td class="px-5 py-3 text-right">0.5 kg</td>
+                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿25.00</td>
+                <td class="px-5 py-3 text-[#6B7A8D]">Staff: MK</td>
+                <td class="px-5 py-3 text-center">
+                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>พุงกาง – Menu Management</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-[#E4E7EC] m-0 p-0 box-border text-[#1A2333]">
+<div class="flex h-screen bg-[#E4E7EC] overflow-hidden">
+  
+  <div class="w-[210px] bg-[#E8EBF0] flex flex-col shrink-0 border-r border-[#C8CDD6]">
+    <div class="p-[14px_16px] border-b border-[#C8CDD6] flex items-center gap-2.5">
+      <div class="w-[34px] h-[34px] flex items-center justify-center shrink-0">
+        <svg class="w-[28px] h-[28px]" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="10,4 20,14 10,24 0,14" fill="#9AA3AE" opacity="0.6"/>
+          <polygon points="22,4 32,14 22,24 12,14" fill="#9AA3AE" opacity="0.6"/>
+          <polygon points="16,10 26,20 16,30 6,20" fill="#6B7A8D" opacity="0.8"/>
+        </svg>
+      </div>
+      <div>
+        <div class="text-[14px] font-medium text-[#1A2333]">พุงกาง</div>
+        <div class="text-[10px] text-[#6B7A8D]">SaaS Platform</div>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto pb-4">
+      <a href="index.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] mt-2 mb-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Dashboard
+      </a>
+
+      <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Operations</div>
+      
+      <a href="table.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <rect x="5" y="8" width="14" height="8" rx="2"></rect>
+          <path d="M8 5v3"></path>
+          <path d="M16 5v3"></path>
+          <path d="M8 16v3"></path>
+          <path d="M16 16v3"></path>
+        </svg>
+        Tables
+      </a>
+      
+      <a href="order.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Orders
+        <span class="ml-auto bg-[#E24B4A] text-white text-[10px] py-[1px] px-[6px] rounded-full">7</span>
+      </a>
+      
+      <a href="menu.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] bg-[#D6DBE4] text-[#1A2333] font-medium decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        Menu
+      </a>
+
+      <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Inventory</div>
+      
+      <a href="stock.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        Stock
+      </a>
+      
+      <a href="waste.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        Waste
+      </a>
+
+      <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Business</div>
+      
+      <a href="promotion.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        Promotions
+      </a>
+      
+      <a href="customer.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        Customers
+      </a>
+
+      <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Credentials</div>
+
+      <a href="staff.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Staff
+      </a>
+    </div>
+    
+    <div class="p-2 border-t border-[#C8CDD6]">
+      <a href="#" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+        <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        Log out
+      </a>
+    </div>
+  </div>
+
+  <div class="flex-1 flex flex-col overflow-hidden">
+    
+    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-5 gap-2.5 shrink-0">
+      <div class="flex items-center gap-2.5">
+        <div class="w-[28px] h-[28px] rounded-full bg-[#D6DBE4] flex items-center justify-center text-[11px] font-medium text-[#1A2333]">TS</div>
+        <div>
+          <div class="text-[13px] font-medium text-[#1A2333]">Thanachot S.</div>
+          <div class="text-[10px] text-[#9AA3AE]">Owner</div>
+        </div>
+      </div>
+      <div class="flex-1"></div>
+      <svg class="w-[18px] h-[18px] fill-none stroke-[#6B7A8D] stroke-[1.5]" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+      <svg class="w-[18px] h-[18px] fill-none stroke-[#6B7A8D] stroke-[1.5]" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    </div>
+
+    <div class="pt-5 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex flex-col gap-4 shrink-0">
+      <div class="flex items-end justify-between">
+        <div>
+          <div class="text-[20px] font-medium text-[#1A2333]">Menu Management</div>
+          <div class="text-[12px] text-[#6B7A8D] mt-0.5">Add, edit, and organize your restaurant's offerings</div>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="text-[12px] py-[6px] px-[14px] rounded-lg border border-transparent bg-[#3D4A5C] text-white font-medium cursor-pointer hover:bg-[#2C3643] flex items-center gap-1.5 shadow-sm">
+            <svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add New Item
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button class="px-4 py-1.5 bg-[#D6DBE4] border border-[#B4BAC4] text-[#1A2333] rounded-lg text-[12px] font-medium transition-colors">Main</button>
+        <button class="px-4 py-1.5 bg-transparent border border-transparent text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] rounded-lg text-[12px] font-medium transition-colors">Drink</button>
+        <button class="px-4 py-1.5 bg-transparent border border-transparent text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] rounded-lg text-[12px] font-medium transition-colors">Dessert</button>
+        <button class="px-4 py-1.5 bg-transparent border border-transparent text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] rounded-lg text-[12px] font-medium transition-colors">Add-on</button>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-[18px]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        
+        <div class="bg-white border border-[#C8CDD6] rounded-xl overflow-hidden flex flex-col shadow-sm group">
+          <div class="h-[130px] bg-[#E8EBF0] relative flex items-center justify-center border-b border-[#E8EBF0]">
+             <svg class="w-10 h-10 stroke-[#9AA3AE]" fill="none" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+             <div class="absolute top-2 right-2 bg-white/90 px-2 py-0.5 rounded text-[10px] font-medium text-[#1A2333] shadow-sm">Main</div>
+          </div>
+          <div class="p-3.5 flex flex-col gap-2">
+            <div class="flex justify-between items-start gap-2">
+               <div class="font-medium text-[13px] text-[#1A2333] leading-tight">Family Bucket</div>
+               <div class="font-semibold text-[13px] text-[#1A2333]">฿350</div>
+            </div>
+            <div class="flex items-center justify-between mt-1 pt-2 border-t border-[#E8EBF0]">
+               <div class="flex items-center gap-2 cursor-pointer">
+                  <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div></div>
+                  <span class="text-[11px] font-medium text-[#1D9E75]">Active</span>
+               </div>
+               <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button class="text-[#9AA3AE] hover:text-[#3D4A5C]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>
+                  <button class="text-[#9AA3AE] hover:text-[#E24B4A]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-[#C8CDD6] rounded-xl overflow-hidden flex flex-col shadow-sm group">
+          <div class="h-[130px] bg-[#E8EBF0] relative flex items-center justify-center border-b border-[#E8EBF0]">
+             <svg class="w-10 h-10 stroke-[#9AA3AE]" fill="none" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+             <div class="absolute top-2 right-2 bg-white/90 px-2 py-0.5 rounded text-[10px] font-medium text-[#1A2333] shadow-sm">Main</div>
+          </div>
+          <div class="p-3.5 flex flex-col gap-2">
+            <div class="flex justify-between items-start gap-2">
+               <div class="font-medium text-[13px] text-[#1A2333] leading-tight">Zinger Burger</div>
+               <div class="font-semibold text-[13px] text-[#1A2333]">฿90</div>
+            </div>
+            <div class="flex items-center justify-between mt-1 pt-2 border-t border-[#E8EBF0]">
+               <div class="flex items-center gap-2 cursor-pointer">
+                  <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div></div>
+                  <span class="text-[11px] font-medium text-[#1D9E75]">Active</span>
+               </div>
+               <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button class="text-[#9AA3AE] hover:text-[#3D4A5C]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>
+                  <button class="text-[#9AA3AE] hover:text-[#E24B4A]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-[#C8CDD6] rounded-xl overflow-hidden flex flex-col shadow-sm group">
+          <div class="h-[130px] bg-[#E8EBF0] relative flex items-center justify-center border-b border-[#E8EBF0]">
+             <svg class="w-10 h-10 stroke-[#9AA3AE]" fill="none" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+             <div class="absolute top-2 right-2 bg-white/90 px-2 py-0.5 rounded text-[10px] font-medium text-[#1A2333] shadow-sm">Main</div>
+          </div>
+          <div class="p-3.5 flex flex-col gap-2">
+            <div class="flex justify-between items-start gap-2">
+               <div class="font-medium text-[13px] text-[#1A2333] leading-tight">Crispy Combo</div>
+               <div class="font-semibold text-[13px] text-[#1A2333]">฿150</div>
+            </div>
+            <div class="flex items-center justify-between mt-1 pt-2 border-t border-[#E8EBF0]">
+               <div class="flex items-center gap-2 cursor-pointer">
+                  <div class="w-7 h-4 bg-[#C8CDD6] rounded-full relative transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute left-0.5 top-0.5 shadow-sm"></div></div>
+                  <span class="text-[11px] font-medium text-[#9AA3AE]">Inactive</span>
+               </div>
+               <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button class="text-[#9AA3AE] hover:text-[#3D4A5C]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>
+                  <button class="text-[#9AA3AE] hover:text-[#E24B4A]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-[#C8CDD6] rounded-xl overflow-hidden flex flex-col shadow-sm group">
+          <div class="h-[130px] bg-[#E8EBF0] relative flex items-center justify-center border-b border-[#E8EBF0]">
+             <svg class="w-10 h-10 stroke-[#9AA3AE]" fill="none" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+             <div class="absolute top-2 right-2 bg-white/90 px-2 py-0.5 rounded text-[10px] font-medium text-[#1A2333] shadow-sm">Main</div>
+          </div>
+          <div class="p-3.5 flex flex-col gap-2">
+            <div class="flex justify-between items-start gap-2">
+               <div class="font-medium text-[13px] text-[#1A2333] leading-tight">Hot Wings x6</div>
+               <div class="font-semibold text-[13px] text-[#1A2333]">฿150</div>
+            </div>
+            <div class="flex items-center justify-between mt-1 pt-2 border-t border-[#E8EBF0]">
+               <div class="flex items-center gap-2 cursor-pointer">
+                  <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div></div>
+                  <span class="text-[11px] font-medium text-[#1D9E75]">Active</span>
+               </div>
+               <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button class="text-[#9AA3AE] hover:text-[#3D4A5C]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>
+                  <button class="text-[#9AA3AE] hover:text-[#E24B4A]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-[#C8CDD6] rounded-xl overflow-hidden flex flex-col shadow-sm group">
+          <div class="h-[130px] bg-[#E8EBF0] relative flex items-center justify-center border-b border-[#E8EBF0]">
+             <svg class="w-10 h-10 stroke-[#9AA3AE]" fill="none" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+             <div class="absolute top-2 right-2 bg-white/90 px-2 py-0.5 rounded text-[10px] font-medium text-[#1A2333] shadow-sm">Main</div>
+          </div>
+          <div class="p-3.5 flex flex-col gap-2">
+            <div class="flex justify-between items-start gap-2">
+               <div class="font-medium text-[13px] text-[#1A2333] leading-tight">Twister Wrap</div>
+               <div class="font-semibold text-[13px] text-[#1A2333]">฿90</div>
+            </div>
+            <div class="flex items-center justify-between mt-1 pt-2 border-t border-[#E8EBF0]">
+               <div class="flex items-center gap-2 cursor-pointer">
+                  <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div></div>
+                  <span class="text-[11px] font-medium text-[#1D9E75]">Active</span>
+               </div>
+               <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button class="text-[#9AA3AE] hover:text-[#3D4A5C]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>
+                  <button class="text-[#9AA3AE] hover:text-[#E24B4A]"><svg class="w-4 h-4 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button>
+               </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
