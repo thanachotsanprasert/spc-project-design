@@ -63,7 +63,7 @@
       
       <a href="waste.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
         <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-        Waste
+        Waste Log
       </a>
 
       <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Business</div>
@@ -84,7 +84,6 @@
         <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         Staff
       </a>
-
     </div>
     
     <div class="p-2 border-t border-[#C8CDD6]">
@@ -137,14 +136,14 @@
           <div class="text-[11px] mt-1 text-[#1D9E75]">↑ +12.4% vs last week</div>
         </div>
         
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
+        <a href="order.html" class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px] block hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
           <div class="flex items-center justify-between mb-2">
             <div class="text-[11px] text-[#6B7A8D]">Orders Today</div>
             <div class="w-[7px] h-[7px] rounded-full bg-[#3D4A5C]"></div>
           </div>
           <div class="text-[21px] font-medium text-[#1A2333] leading-tight">87</div>
           <div class="text-[11px] mt-1 text-[#1D9E75]">↑ +8 vs yesterday</div>
-        </div>
+        </a>
         
         <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
           <div class="flex items-center justify-between mb-2">
@@ -155,22 +154,22 @@
           <div class="text-[11px] mt-1 text-[#E24B4A]">↓ -2.1% vs last week</div>
         </div>
         
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
+        <a href="table.html" class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px] block hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
           <div class="flex items-center justify-between mb-2">
             <div class="text-[11px] text-[#6B7A8D]">Tables Occupied</div>
             <div class="w-[7px] h-[7px] rounded-full bg-[#C96A00]"></div>
           </div>
           <div class="text-[21px] font-medium text-[#1A2333] leading-tight">8 / 15</div>
           <div class="text-[11px] mt-1 text-[#9AA3AE]">53% occupancy rate</div>
-        </div>
+        </a>
       </div>
 
       <div class="grid grid-cols-[1.55fr_1fr] gap-[14px]">
         
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-4">
+        <a href="order.html" class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-4 block group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
           <div class="flex items-center justify-between mb-3">
             <span class="text-[13px] font-medium text-[#1A2333]">Live Orders</span>
-            <span class="text-[11px] text-[#6B7A8D] cursor-pointer">View all →</span>
+            <span class="text-[11px] text-[#6B7A8D] group-hover:text-[#3D4A5C]">View all →</span>
           </div>
           
           <div class="flex items-center gap-2 py-[7px] border-b border-[#C8CDD6]">
@@ -207,10 +206,10 @@
             <div class="text-[10px] py-[2px] px-2 rounded-full font-medium min-w-[58px] text-center bg-[#FEF3E2] text-[#C96A00]">Cooking</div>
             <div class="text-[11px] text-[#9AA3AE] min-w-[38px] text-right">8 min</div>
           </div>
-        </div>
+        </a>
 
         <div class="flex flex-col gap-[14px]">
-          <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-4">
+          <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-4 h-full">
             <div class="flex items-center justify-between mb-3">
               <span class="text-[13px] font-medium text-[#1A2333]">Revenue (Mon–Sun)</span>
             </div>
@@ -219,13 +218,92 @@
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[65px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Tue</div></div>
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[42px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Wed</div></div>
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[70px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Thu</div></div>
-              <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[80px] bg-[#3D4A5C]"></div><div class="text-[10px] text-[#9AA3AE]">Fri</div></div>
+              <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[80px] bg-[#3D4A5C]"></div><div class="text-[10px] text-[#1A2333] font-medium">Fri</div></div>
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[74px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Sat</div></div>
               <div class="flex-1 flex flex-col items-center gap-[3px]"><div class="w-full rounded-t-[3px] h-[55px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Sun</div></div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[14px]">
+        
+        <a href="stock.html" class="bg-white border border-[#C8CDD6] rounded-xl py-3.5 px-4 flex flex-col group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
+          <div class="flex items-center justify-between mb-3 border-b border-[#E8EBF0] pb-2">
+            <span class="text-[13px] font-medium text-[#1A2333] flex items-center gap-1.5">
+              <svg class="w-4 h-4 stroke-[#6B7A8D]" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              Inventory Alert
+            </span>
+            <span class="text-[11px] text-[#6B7A8D] group-hover:text-[#3D4A5C]">View all →</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">French Fries (Frozen)</span>
+              <span class="text-[11px] bg-[#FCEBEB] text-[#E24B4A] px-1.5 py-0.5 rounded font-medium">Low: 5.0 kg</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">Burger Buns</span>
+              <span class="text-[11px] bg-[#FEF3E2] text-[#C96A00] px-1.5 py-0.5 rounded font-medium">Exp: 23 Apr</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">Seasonal Herbs</span>
+              <span class="text-[11px] bg-[#F9FAFB] border border-[#E8EBF0] text-[#9AA3AE] px-1.5 py-0.5 rounded font-medium">Empty: 0.0 g</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="waste.html" class="bg-white border border-[#C8CDD6] rounded-xl py-3.5 px-4 flex flex-col group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
+          <div class="flex items-center justify-between mb-3 border-b border-[#E8EBF0] pb-2">
+            <span class="text-[13px] font-medium text-[#1A2333] flex items-center gap-1.5">
+              <svg class="w-4 h-4 stroke-[#E24B4A]" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              Recent Waste
+            </span>
+            <span class="text-[11px] text-[#6B7A8D] group-hover:text-[#3D4A5C]">View all →</span>
+          </div>
+          <div class="flex flex-col gap-2">
+             <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">Burger Buns <span class="text-[#9AA3AE] text-[10px] ml-1">(Expired)</span></span>
+              <span class="text-[11px] text-[#E24B4A] font-medium">-฿75.00</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">Zinger Burger <span class="text-[#9AA3AE] text-[10px] ml-1">(Mistake)</span></span>
+              <span class="text-[11px] text-[#E24B4A] font-medium">-฿90.00</span>
+            </div>
+            <div class="flex justify-between items-center pt-1 mt-1 border-t border-[#E8EBF0]">
+              <span class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">Month Total</span>
+              <span class="text-[12px] text-[#E24B4A] font-semibold">฿1,425.00</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="promotion.html" class="bg-white border border-[#C8CDD6] rounded-xl py-3.5 px-4 flex flex-col group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
+          <div class="flex items-center justify-between mb-3 border-b border-[#E8EBF0] pb-2">
+            <span class="text-[13px] font-medium text-[#1A2333] flex items-center gap-1.5">
+              <svg class="w-4 h-4 stroke-[#1D9E75]" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+              Promo Performance
+            </span>
+            <span class="text-[11px] text-[#6B7A8D] group-hover:text-[#3D4A5C]">View all →</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+              <div class="flex flex-col">
+                <span class="text-[12px] font-medium text-[#1A2333]">WELCOME10</span>
+                <span class="text-[9px] text-[#9AA3AE]">145 Uses</span>
+              </div>
+              <span class="text-[11px] bg-[#E1F5EE] text-[#0F6E56] px-1.5 py-0.5 rounded font-medium">Active</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <div class="flex flex-col">
+                <span class="text-[12px] font-medium text-[#1A2333]">FREEFRIES</span>
+                <span class="text-[9px] text-[#9AA3AE]">82 Uses</span>
+              </div>
+              <span class="text-[11px] bg-[#FEF3E2] text-[#C96A00] px-1.5 py-0.5 rounded font-medium">Exp Soon</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
     </div>
   </div>
 </div>
