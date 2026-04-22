@@ -192,11 +192,46 @@
       </div>
     </div>
 
-    <div class="pt-5 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex items-end justify-between shrink-0">
-      <div>
+    <div class="pt-4 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex items-center justify-between shrink-0">
+      <div class="flex flex-col">
         <div class="text-[20px] font-medium text-[#1A2333]">Waste Log</div>
         <div class="text-[12px] text-[#6B7A8D] mt-0.5">Record expiring items, accidental damage, and order mistakes</div>
       </div>
+
+      <div class="flex items-center gap-6 hidden md:flex">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5 mb-0.5">
+            <span class="text-[10px] text-[#6B7A8D] uppercase tracking-wider font-semibold">Total Lost</span>
+            <svg class="w-3 h-3 stroke-[#E24B4A]" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <div class="text-[18px] font-medium text-[#1A2333] leading-none">฿1,425</div>
+        </div>
+        
+        <div class="flex flex-col border-l border-[#E8EBF0] pl-6">
+          <div class="flex items-center gap-1.5 mb-0.5">
+            <span class="text-[10px] text-[#6B7A8D] uppercase tracking-wider font-semibold">Expired</span>
+            <svg class="w-3 h-3 stroke-[#3D4A5C]" fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="text-[18px] font-medium text-[#1A2333] leading-none">12</div>
+        </div>
+        
+        <div class="flex flex-col border-l border-[#E8EBF0] pl-6">
+          <div class="flex items-center gap-1.5 mb-0.5">
+            <span class="text-[10px] text-[#6B7A8D] uppercase tracking-wider font-semibold">Mistakes</span>
+            <svg class="w-3 h-3 stroke-[#3D4A5C]" fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+          </div>
+          <div class="text-[18px] font-medium text-[#1A2333] leading-none">4</div>
+        </div>
+
+        <div class="flex flex-col border-l border-[#E8EBF0] pl-6">
+          <div class="flex items-center gap-1.5 mb-0.5">
+            <span class="text-[10px] text-[#6B7A8D] uppercase tracking-wider font-semibold">Accidents</span>
+            <svg class="w-3 h-3 stroke-[#3D4A5C]" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          </div>
+          <div class="text-[18px] font-medium text-[#1A2333] leading-none">2</div>
+        </div>
+      </div>
+
       <div class="flex items-center gap-3">
         <button class="text-[12px] py-[6px] px-[14px] rounded-lg border border-transparent bg-[#E24B4A] text-white font-medium cursor-pointer hover:bg-[#C94241] flex items-center gap-1.5 shadow-sm">
           <svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
@@ -206,40 +241,6 @@
     </div>
 
     <div class="flex-1 overflow-y-auto p-[18px] flex flex-col gap-6">
-      
-      <div class="grid grid-cols-4 gap-2.5">
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
-          <div class="flex items-center justify-between mb-2">
-            <div class="text-[11px] text-[#E24B4A] uppercase tracking-wider font-medium">Total Value Lost (This Month)</div>
-            <svg class="w-4 h-4 stroke-[#E24B4A]" fill="none" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
-          </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">฿1,425</div>
-        </div>
-        
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
-          <div class="flex items-center justify-between mb-2">
-            <div class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">Expired Items</div>
-            <svg class="w-4 h-4 stroke-[#6B7A8D]" fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">12</div>
-        </div>
-        
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
-          <div class="flex items-center justify-between mb-2">
-            <div class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">Kitchen Mistakes</div>
-            <svg class="w-4 h-4 stroke-[#6B7A8D]" fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-          </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">4</div>
-        </div>
-        
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
-          <div class="flex items-center justify-between mb-2">
-            <div class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">Accidents / Spills</div>
-            <svg class="w-4 h-4 stroke-[#6B7A8D]" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
-          </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">2</div>
-        </div>
-      </div>
 
       <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm">
         <div class="px-5 py-4 border-b border-[#E8EBF0] flex justify-between items-center bg-[#FCFDFE]">
@@ -254,6 +255,7 @@
           <table class="w-full text-left border-collapse whitespace-nowrap">
             <thead>
               <tr class="bg-[#F9FAFB] text-[#6B7A8D] text-[11px] uppercase tracking-wider border-b border-[#E8EBF0]">
+                <th class="px-5 py-3 font-medium">Waste ID</th>
                 <th class="px-5 py-3 font-medium">Date & Time</th>
                 <th class="px-5 py-3 font-medium">Item / Ingredient</th>
                 <th class="px-5 py-3 font-medium">Category (Reason)</th>
@@ -263,78 +265,7 @@
                 <th class="px-5 py-3 font-medium text-center">Action</th>
               </tr>
             </thead>
-            <tbody class="text-[12px] text-[#1A2333]">
-              
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 09:15</td>
-                <td class="px-5 py-3 font-medium">Burger Buns</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#FCEBEB] text-[#E24B4A] text-[10px] px-2 py-0.5 rounded-md font-medium">Expired</span>
-                </td>
-                <td class="px-5 py-3 text-right">15 pcs</td>
-                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿75.00</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Thanachot S.</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
-                </td>
-              </tr>
-
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 text-[#6B7A8D]">Yesterday, 14:30</td>
-                <td class="px-5 py-3 font-medium">Zinger Burger</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] px-2 py-0.5 rounded-md font-medium">Wrong Order</span>
-                </td>
-                <td class="px-5 py-3 text-right">1 portion</td>
-                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿90.00</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Staff: MK</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
-                </td>
-              </tr>
-
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 text-[#6B7A8D]">Yesterday, 11:00</td>
-                <td class="px-5 py-3 font-medium">Cooking Oil</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[10px] px-2 py-0.5 rounded-md font-medium">Accident / Spill</span>
-                </td>
-                <td class="px-5 py-3 text-right">2.5 L</td>
-                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿122.50</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Staff: JD</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
-                </td>
-              </tr>
-
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 text-[#6B7A8D]">19 Apr 2026, 08:00</td>
-                <td class="px-5 py-3 font-medium">Fresh Milk</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#FCEBEB] text-[#E24B4A] text-[10px] px-2 py-0.5 rounded-md font-medium">Expired</span>
-                </td>
-                <td class="px-5 py-3 text-right">3 L</td>
-                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿135.00</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Thanachot S.</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
-                </td>
-              </tr>
-
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 text-[#6B7A8D]">18 Apr 2026, 15:45</td>
-                <td class="px-5 py-3 font-medium">French Fries</td>
-                <td class="px-5 py-3">
-                  <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[10px] px-2 py-0.5 rounded-md font-medium">Quality Control</span>
-                </td>
-                <td class="px-5 py-3 text-right">0.5 kg</td>
-                <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿25.00</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Staff: MK</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
-                </td>
-              </tr>
-
+            <tbody id="waste-table-body" class="text-[12px] text-[#1A2333]">
             </tbody>
           </table>
         </div>
@@ -355,6 +286,42 @@
 </div>
 
 <script>
+  // --- UPDATED: Data Mocking Logic for 35 rows and unique IDs ---
+  const items = ["Burger Buns", "Zinger Burger", "Cooking Oil", "Fresh Milk", "French Fries", "Chicken Breast", "Lettuce", "Cheddar Cheese"];
+  const reasons = [
+    { label: "Expired", bg: "#FCEBEB", text: "#E24B4A" },
+    { label: "Wrong Order", bg: "#FEF3E2", text: "#C96A00" },
+    { label: "Accident / Spill", bg: "#E8EBF0", text: "#3D4A5C" },
+    { label: "Quality Control", bg: "#E8EBF0", text: "#3D4A5C" }
+  ];
+  const staff = ["Thanachot S.", "Staff: MK", "Staff: JD", "Staff: Bua"];
+
+  const tbody = document.getElementById('waste-table-body');
+  for (let i = 1; i <= 35; i++) {
+    const item = items[Math.floor(Math.random() * items.length)];
+    const reason = reasons[Math.floor(Math.random() * reasons.length)];
+    const recorder = staff[Math.floor(Math.random() * staff.length)];
+    const id = `WST-04${String(i).padStart(3, '0')}`;
+    
+    const row = `
+      <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+        <td class="px-5 py-3 text-[#6B7A8D] font-mono">${id}</td>
+        <td class="px-5 py-3 text-[#6B7A8D]">${22 - Math.floor(i/2)} Apr 2026, ${10 + (i%8)}:15</td>
+        <td class="px-5 py-3 font-medium">${item}</td>
+        <td class="px-5 py-3">
+          <span class="bg-[${reason.bg}] text-[${reason.text}] text-[10px] px-2 py-0.5 rounded-md font-medium">${reason.label}</span>
+        </td>
+        <td class="px-5 py-3 text-right">${(Math.random() * 5 + 1).toFixed(1)} qty</td>
+        <td class="px-5 py-3 text-right font-medium text-[#E24B4A]">-฿${(Math.random() * 150 + 20).toFixed(2)}</td>
+        <td class="px-5 py-3 text-[#6B7A8D]">${recorder}</td>
+        <td class="px-5 py-3 text-center">
+          <span class="text-[#3D4A5C] hover:underline cursor-pointer">Details</span>
+        </td>
+      </tr>
+    `;
+    tbody.insertAdjacentHTML('beforeend', row);
+  }
+
   // --- Popup & Modal Logic ---
   document.addEventListener('click', function(event) {
     const popups = [
