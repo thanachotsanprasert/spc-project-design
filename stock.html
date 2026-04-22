@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>พุงกาง – Stock Management</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Spreadsheet styles */
+  .spreadsheet-cell:focus {
+    background-color: #EBF5FF;
+    outline: 2px solid #2563EB;
+    outline-offset: -2px;
+  }
+</style>
 </head>
 <body class="font-sans bg-[#E4E7EC] m-0 p-0 box-border text-[#1A2333]">
 <div class="flex h-screen bg-[#E4E7EC] overflow-hidden">
@@ -94,10 +102,9 @@
     </div>
   </div>
 
-  <div class="flex-1 flex flex-col overflow-hidden">
+  <div class="flex-1 flex flex-col overflow-hidden relative">
     
     <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-5 gap-2.5 shrink-0 z-[60]">
-      
       <div class="relative">
         <div id="btn-profile" onclick="togglePopup('popup-profile')" class="flex items-center gap-2.5 cursor-pointer hover:bg-[#F9FAFB] p-1.5 -ml-1.5 rounded-lg transition-colors outline-none">
           <div class="w-[28px] h-[28px] rounded-full bg-[#D6DBE4] flex items-center justify-center text-[11px] font-medium text-[#1A2333]">TS</div>
@@ -133,7 +140,6 @@
       <div class="flex-1"></div>
       
       <div class="flex items-center gap-2 relative">
-        
         <div class="relative">
           <button id="btn-notifications" onclick="togglePopup('popup-notifications')" class="p-1 rounded-lg hover:bg-[#E8EBF0] transition-colors relative cursor-pointer outline-none">
             <svg class="w-[18px] h-[18px] fill-none stroke-[#6B7A8D] stroke-[1.5]" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
@@ -151,10 +157,6 @@
                    <div class="flex justify-between items-center"><span class="text-[12px] font-medium text-[#1A2333]">New Order to Accept</span><span class="text-[10px] text-[#1D9E75] font-medium">2m ago</span></div>
                    <div class="text-[11px] text-[#6B7A8D]">Order #1046 is waiting for confirmation.</div>
                 </div>
-                <div class="px-4 py-3 hover:bg-[#F9FAFB] cursor-pointer flex flex-col gap-1 transition-colors">
-                   <div class="flex justify-between items-center"><span class="text-[12px] font-medium text-[#1A2333]">Delivery Status Update</span><span class="text-[10px] text-[#9AA3AE]">15m ago</span></div>
-                   <div class="text-[11px] text-[#6B7A8D]">Order #1038 arrived at customer location.</div>
-                </div>
              </div>
           </div>
         </div>
@@ -167,17 +169,10 @@
           <div id="popup-settings" class="hidden absolute top-[110%] right-0 mt-1 w-56 bg-white border border-[#C8CDD6] rounded-xl shadow-lg z-50 overflow-hidden">
              <div class="px-4 py-2 border-b border-[#E8EBF0] font-semibold text-[13px] text-[#1A2333] bg-[#F9FAFB]">Quick Settings</div>
              <div class="flex flex-col p-2 gap-1">
-                
                 <div class="flex justify-between items-center px-2 py-2 hover:bg-[#F9FAFB] rounded-lg cursor-pointer transition-colors" onclick="toggleToggle(this)">
                    <span class="text-[12px] text-[#1A2333]">Active Online Status</span>
                    <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative toggle-bg transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm toggle-dot transition-all"></div></div>
                 </div>
-                
-                <div class="flex justify-between items-center px-2 py-2 hover:bg-[#F9FAFB] rounded-lg cursor-pointer transition-colors" onclick="toggleToggle(this)">
-                   <span class="text-[12px] text-[#1A2333]">Mute Mode</span>
-                   <div class="w-7 h-4 bg-[#C8CDD6] rounded-full relative toggle-bg transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute left-0.5 top-0.5 shadow-sm toggle-dot transition-all"></div></div>
-                </div>
-                
                 <div class="flex justify-between items-center px-2 py-2 hover:bg-[#F9FAFB] rounded-lg cursor-pointer transition-colors border-t border-[#E8EBF0] mt-1">
                    <span class="text-[12px] text-[#1A2333]">Language</span>
                    <select class="text-[11px] font-medium text-[#3D4A5C] bg-[#E8EBF0] px-2 py-1 rounded outline-none cursor-pointer">
@@ -188,198 +183,131 @@
              </div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <div class="pt-5 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex items-end justify-between shrink-0">
-      <div>
+    <div class="pt-4 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex items-center justify-between shrink-0">
+      <div class="flex flex-col">
         <div class="text-[20px] font-medium text-[#1A2333]">Stock Management</div>
         <div class="text-[12px] text-[#6B7A8D] mt-0.5">Record incoming lots and monitor ingredient availability</div>
       </div>
+
+      <div class="flex items-center gap-6 hidden md:flex">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5 mb-0.5"><span class="text-[10px] text-[#6B7A8D] uppercase tracking-wider font-semibold">Total Value</span><svg class="w-3 h-3 stroke-[#1D9E75]" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+          <div class="text-[18px] font-medium text-[#1A2333] leading-none">฿32,450</div>
+        </div>
+        
+        <div class="flex flex-col border-l border-[#E8EBF0] pl-6">
+          <div class="flex items-center gap-1.5 mb-0.5"><span class="text-[10px] text-[#6B7A8D] uppercase tracking-wider font-semibold">Active Items</span><svg class="w-3 h-3 stroke-[#3D4A5C]" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div>
+          <div class="text-[18px] font-medium text-[#1A2333] leading-none">42</div>
+        </div>
+        
+        <div class="flex flex-col border-l border-[#E8EBF0] pl-6">
+          <div class="flex items-center gap-1.5 mb-0.5"><span class="text-[10px] text-[#E24B4A] uppercase tracking-wider font-semibold">Low Stock</span><div class="w-1.5 h-1.5 rounded-full bg-[#E24B4A]"></div></div>
+          <div class="text-[18px] font-medium text-[#1A2333] leading-none">3</div>
+        </div>
+        
+        <div class="flex flex-col border-l border-[#E8EBF0] pl-6">
+          <div class="flex items-center gap-1.5 mb-0.5"><span class="text-[10px] text-[#C96A00] uppercase tracking-wider font-semibold">Expiring Soon</span><svg class="w-3 h-3 stroke-[#C96A00]" fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+          <div class="text-[18px] font-medium text-[#1A2333] leading-none">2</div>
+        </div>
+      </div>
+
       <div class="flex items-center gap-3">
-        <button class="text-[12px] py-[6px] px-[14px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] font-medium cursor-pointer hover:bg-[#F9FAFB] flex items-center gap-1.5 shadow-sm">
+        <button onclick="openNewLotModal()" class="text-[12px] py-[6px] px-[14px] rounded-lg border border-transparent bg-[#3D4A5C] text-white font-medium cursor-pointer hover:bg-[#2C3643] flex items-center gap-1.5 shadow-sm">
           <svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          New Item
-        </button>
-        <button class="text-[12px] py-[6px] px-[14px] rounded-lg border border-transparent bg-[#3D4A5C] text-white font-medium cursor-pointer hover:bg-[#2C3643] flex items-center gap-1.5 shadow-sm">
-          <svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Record Stock In
+          New Lot
         </button>
       </div>
     </div>
 
-    <div class="flex-1 overflow-y-auto p-[18px] flex flex-col gap-6">
-      
-      <div class="grid grid-cols-4 gap-2.5">
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
-          <div class="flex items-center justify-between mb-2">
-            <div class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">Total Value</div>
-            <svg class="w-4 h-4 stroke-[#1D9E75]" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-          </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">฿32,450</div>
-        </div>
-        
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
-          <div class="flex items-center justify-between mb-2">
-            <div class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">Active Items</div>
-            <svg class="w-4 h-4 stroke-[#3D4A5C]" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-          </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">42</div>
-        </div>
-        
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
-          <div class="flex items-center justify-between mb-2">
-            <div class="text-[11px] text-[#E24B4A] uppercase tracking-wider font-medium">Low Stock</div>
-            <div class="w-2 h-2 rounded-full bg-[#E24B4A]"></div>
-          </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">3</div>
-        </div>
-        
-        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
-          <div class="flex items-center justify-between mb-2">
-            <div class="text-[11px] text-[#C96A00] uppercase tracking-wider font-medium">Expiring Soon</div>
-            <svg class="w-4 h-4 stroke-[#C96A00]" fill="none" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          </div>
-          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">2</div>
-        </div>
-      </div>
-
-      <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm">
+    <div class="flex-1 overflow-y-auto p-[18px] flex flex-col">
+      <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm h-full">
         <div class="px-5 py-4 border-b border-[#E8EBF0] flex justify-between items-center bg-[#FCFDFE]">
-          <h2 class="text-[14px] font-semibold text-[#1A2333]">Current Inventory</h2>
+          <div class="flex items-center gap-3">
+             <h2 class="text-[14px] font-semibold text-[#1A2333]">Inventory & Lots</h2>
+             <span class="bg-[#E8EBF0] text-[#6B7A8D] px-2 py-0.5 rounded text-[10px] font-medium">50 items</span>
+          </div>
           <div class="flex gap-2">
-            <input type="text" placeholder="Search item..." class="text-[11px] border border-[#C8CDD6] rounded px-2 py-1 text-[#1A2333] outline-none w-48">
+            <input type="text" placeholder="Search ingredient or lot..." class="text-[11px] border border-[#C8CDD6] rounded px-3 py-1.5 text-[#1A2333] outline-none w-56">
+            <button class="text-[11px] border border-[#C8CDD6] rounded px-3 py-1.5 text-[#6B7A8D] hover:bg-[#F9FAFB] bg-white">Filter</button>
           </div>
         </div>
         
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto flex-1">
           <table class="w-full text-left border-collapse whitespace-nowrap">
             <thead>
               <tr class="bg-[#F9FAFB] text-[#6B7A8D] text-[11px] uppercase tracking-wider border-b border-[#E8EBF0]">
-                <th class="px-5 py-3 font-medium">Food Stock ID</th>
-                <th class="px-5 py-3 font-medium">Name</th>
-                <th class="px-5 py-3 font-medium text-right">Total Qty</th>
-                <th class="px-5 py-3 font-medium">Unit</th>
-                <th class="px-5 py-3 font-medium text-center">Active Status</th>
-                <th class="px-5 py-3 font-medium text-center">Action</th>
-              </tr>
-            </thead>
-            <tbody class="text-[12px] text-[#1A2333]">
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium text-[#6B7A8D]">FS-1001</td>
-                <td class="px-5 py-3 font-medium">Chicken Breast</td>
-                <td class="px-5 py-3 text-right">45.5</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">kg</td>
-                <td class="px-5 py-3 text-center">
-                   <div class="flex items-center justify-center gap-2 cursor-pointer">
-                      <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div></div>
-                   </div>
-                </td>
-                <td class="px-5 py-3 text-center">
-                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Edit</span>
-                </td>
-              </tr>
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium text-[#6B7A8D]">FS-1002</td>
-                <td class="px-5 py-3 font-medium">French Fries (Frozen)</td>
-                <td class="px-5 py-3 text-right text-[#E24B4A] font-medium">5.0</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">kg</td>
-                <td class="px-5 py-3 text-center">
-                   <div class="flex items-center justify-center gap-2 cursor-pointer">
-                      <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div></div>
-                   </div>
-                </td>
-                <td class="px-5 py-3 text-center">
-                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Edit</span>
-                </td>
-              </tr>
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium text-[#6B7A8D]">FS-1003</td>
-                <td class="px-5 py-3 font-medium text-[#9AA3AE]">Seasonal Herbs</td>
-                <td class="px-5 py-3 text-right text-[#9AA3AE]">0.0</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">g</td>
-                <td class="px-5 py-3 text-center">
-                   <div class="flex items-center justify-center gap-2 cursor-pointer">
-                      <div class="w-7 h-4 bg-[#C8CDD6] rounded-full relative"><div class="w-3 h-3 bg-white rounded-full absolute left-0.5 top-0.5 shadow-sm"></div></div>
-                   </div>
-                </td>
-                <td class="px-5 py-3 text-center">
-                  <span class="text-[#3D4A5C] hover:underline cursor-pointer">Edit</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm">
-        <div class="px-5 py-4 border-b border-[#E8EBF0] flex justify-between items-center bg-[#FCFDFE]">
-          <h2 class="text-[14px] font-semibold text-[#1A2333]">Recent Stock In (Lots)</h2>
-          <div class="flex gap-2">
-            <button class="text-[11px] border border-[#C8CDD6] rounded px-3 py-1 text-[#6B7A8D] hover:bg-[#F9FAFB]">Filter by Date</button>
-          </div>
-        </div>
-        
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse whitespace-nowrap">
-            <thead>
-              <tr class="bg-[#F9FAFB] text-[#6B7A8D] text-[11px] uppercase tracking-wider border-b border-[#E8EBF0]">
-                <th class="px-5 py-3 font-medium">Lot ID</th>
+                <th class="px-5 py-3 font-medium">Lot / Stock ID</th>
+                <th class="px-5 py-3 font-medium">Ingredient ID</th>
                 <th class="px-5 py-3 font-medium">Ingredient Name</th>
-                <th class="px-5 py-3 font-medium text-right">Quantity</th>
+                <th class="px-5 py-3 font-medium text-right">Qty</th>
                 <th class="px-5 py-3 font-medium">Unit</th>
                 <th class="px-5 py-3 font-medium text-right">Price</th>
                 <th class="px-5 py-3 font-medium">Exp Date</th>
-                <th class="px-5 py-3 font-medium text-center">Status</th>
+                <th class="px-5 py-3 font-medium text-center">Active Status</th>
+                <th class="px-5 py-3 font-medium text-center">Lot Status</th>
+                <th class="px-5 py-3 font-medium text-center">Action</th>
               </tr>
             </thead>
-            <tbody class="text-[12px] text-[#1A2333]">
-              
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium text-[#6B7A8D]">#LOT-612a8b</td>
-                <td class="px-5 py-3 font-medium">Chicken Breast</td>
-                <td class="px-5 py-3 text-right">25.0</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">kg</td>
-                <td class="px-5 py-3 text-right font-medium text-[#1A2333]">฿1,750.00</td>
-                <td class="px-5 py-3 text-[#1A2333]">2026-04-28</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] font-medium px-2 py-1 rounded-full">Good</span>
-                </td>
-              </tr>
-
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium text-[#6B7A8D]">#LOT-612a8c</td>
-                <td class="px-5 py-3 font-medium">Burger Buns</td>
-                <td class="px-5 py-3 text-right">100</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">pcs</td>
-                <td class="px-5 py-3 text-right font-medium text-[#1A2333]">฿500.00</td>
-                <td class="px-5 py-3 text-[#C96A00] font-medium">2026-04-23</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] font-medium px-2 py-1 rounded-full">Exp Soon</span>
-                </td>
-              </tr>
-
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3 font-medium text-[#6B7A8D]">#LOT-612a8a</td>
-                <td class="px-5 py-3 font-medium">Cooking Oil</td>
-                <td class="px-5 py-3 text-right">20.0</td>
-                <td class="px-5 py-3 text-[#6B7A8D]">L</td>
-                <td class="px-5 py-3 text-right font-medium text-[#1A2333]">฿980.00</td>
-                <td class="px-5 py-3 text-[#1A2333]">2027-01-15</td>
-                <td class="px-5 py-3 text-center">
-                  <span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] font-medium px-2 py-1 rounded-full">Good</span>
-                </td>
-              </tr>
-
-            </tbody>
+            <tbody id="inventory-tbody" class="text-[12px] text-[#1A2333]">
+              </tbody>
           </table>
         </div>
       </div>
-
     </div>
-  </div>
-</div>
+
+    <div id="new-lot-modal" class="hidden absolute inset-0 bg-[#F2F4F7] z-[80] flex flex-col overflow-hidden transition-opacity">
+      <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center justify-between px-5 shrink-0 z-10">
+          <div class="flex items-center gap-3">
+             <button onclick="closeNewLotModal()" class="p-1.5 -ml-1.5 rounded-lg hover:bg-[#E8EBF0] transition-colors outline-none cursor-pointer">
+                <svg class="w-5 h-5 text-[#6B7A8D]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
+             </button>
+             <span class="font-semibold text-[16px] text-[#1A2333]">Record New Stock / Lot (Batch Upload)</span>
+          </div>
+          <div class="flex items-center gap-3">
+             <button onclick="closeNewLotModal()" class="px-4 py-2 text-[#6B7A8D] font-medium text-[13px] hover:text-[#1A2333]">Cancel</button>
+             <button onclick="closeNewLotModal()" class="px-5 py-2 bg-[#1D9E75] text-white rounded-lg text-[13px] font-medium hover:bg-[#168562] transition-colors shadow-sm">Import Data</button>
+          </div>
+      </div>
+      
+      <div class="flex-1 overflow-hidden p-6 max-w-6xl mx-auto w-full flex flex-col gap-4">
+         
+         <div class="flex justify-between items-end">
+            <div>
+               <h3 class="text-[14px] font-medium text-[#1A2333]">Spreadsheet Entry</h3>
+               <p class="text-[12px] text-[#6B7A8D] mt-0.5">You can copy and paste directly from Excel or Google Sheets. Match the columns below.</p>
+            </div>
+            <button class="text-[12px] border border-[#C8CDD6] bg-white text-[#1A2333] px-3 py-1.5 rounded-lg font-medium hover:bg-[#E8EBF0] transition-colors">
+               + Add 10 Rows
+            </button>
+         </div>
+
+         <div class="flex-1 bg-white border border-[#C8CDD6] shadow-sm overflow-hidden flex flex-col bg-white">
+            <div class="overflow-auto flex-1">
+               <table class="w-full text-left border-collapse whitespace-nowrap text-[12px]">
+                   <thead class="sticky top-0 z-10 shadow-sm">
+                       <tr class="bg-[#F3F4F6] text-[#3D4A5C]">
+                           <th class="w-10 border border-[#D1D5DB] text-center py-2 font-medium bg-[#E5E7EB]"></th>
+                           <th class="border border-[#D1D5DB] px-3 py-2 font-medium bg-[#F3F4F6] min-w-[120px]">Ingredient ID</th>
+                           <th class="border border-[#D1D5DB] px-3 py-2 font-medium bg-[#F3F4F6] min-w-[180px]">Ingredient Name</th>
+                           <th class="border border-[#D1D5DB] px-3 py-2 font-medium bg-[#F3F4F6] min-w-[100px]">Quantity</th>
+                           <th class="border border-[#D1D5DB] px-3 py-2 font-medium bg-[#F3F4F6] min-w-[80px]">Unit</th>
+                           <th class="border border-[#D1D5DB] px-3 py-2 font-medium bg-[#F3F4F6] min-w-[120px]">Total Price (฿)</th>
+                           <th class="border border-[#D1D5DB] px-3 py-2 font-medium bg-[#F3F4F6] min-w-[120px]">Exp Date (YYYY-MM-DD)</th>
+                       </tr>
+                   </thead>
+                   <tbody id="spreadsheet-tbody" class="text-[#1A2333]">
+                   </tbody>
+               </table>
+            </div>
+         </div>
+
+      </div>
+    </div>
+
+  </div> </div>
 
 <div id="logout-modal" class="hidden fixed inset-0 bg-[#1A2333]/40 z-[100] flex items-center justify-center backdrop-blur-sm transition-opacity">
   <div class="bg-white rounded-xl p-6 w-80 shadow-lg flex flex-col items-center text-center gap-4 border border-[#C8CDD6]">
@@ -392,7 +320,98 @@
 </div>
 
 <script>
-  // --- Popup & Modal Logic ---
+  // --- 1. Populate the 50 Items Table dynamically ---
+  document.addEventListener('DOMContentLoaded', () => {
+    const tbody = document.getElementById('inventory-tbody');
+    
+    const baseItems = [
+      { name: 'Chicken Breast', unit: 'kg', price: 1750, qty: 25.0, status: 'Good' },
+      { name: 'Burger Buns', unit: 'pcs', price: 500, qty: 100, status: 'Exp Soon' },
+      { name: 'Cooking Oil', unit: 'L', price: 980, qty: 20.0, status: 'Good' },
+      { name: 'French Fries (Frozen)', unit: 'kg', price: 350, qty: 5.0, status: 'Low Stock' },
+      { name: 'Seasonal Herbs', unit: 'g', price: 0, qty: 0.0, status: 'Empty' },
+      { name: 'Cheddar Cheese', unit: 'kg', price: 1200, qty: 12.5, status: 'Good' },
+      { name: 'Tomato Ketchup', unit: 'L', price: 400, qty: 15.0, status: 'Good' },
+      { name: 'Fresh Lettuce', unit: 'kg', price: 200, qty: 8.0, status: 'Exp Soon' },
+      { name: 'Beef Patties', unit: 'pcs', price: 2500, qty: 50, status: 'Good' },
+      { name: 'White Onions', unit: 'kg', price: 150, qty: 12.0, status: 'Good' }
+    ];
+
+    let html = '';
+    
+    for(let i=1; i<=50; i++) {
+      const item = baseItems[i % baseItems.length];
+      const idNum = (i).toString().padStart(3, '0');
+      const lotId = `#LOT-82B${idNum}`;
+      const ingId = `ING-${idNum}`;
+      
+      // Calculate realistic random dates
+      const baseDate = new Date("2026-04-22");
+      const expOffset = (item.status === 'Exp Soon') ? 2 : (item.status === 'Good' ? Math.floor(Math.random()*60)+10 : 0);
+      baseDate.setDate(baseDate.getDate() + expOffset);
+      const expDate = item.status === 'Empty' ? '-' : baseDate.toISOString().split('T')[0];
+
+      // Status Badges
+      let badgeHtml = '';
+      if(item.status === 'Good') badgeHtml = `<span class="bg-[#E1F5EE] text-[#0F6E56] text-[10px] font-medium px-2 py-1 rounded-full">Good</span>`;
+      else if(item.status === 'Exp Soon') badgeHtml = `<span class="bg-[#FEF3E2] text-[#C96A00] text-[10px] font-medium px-2 py-1 rounded-full">Exp Soon</span>`;
+      else if(item.status === 'Low Stock') badgeHtml = `<span class="bg-[#FCEBEB] text-[#E24B4A] text-[10px] font-medium px-2 py-1 rounded-full">Low Stock</span>`;
+      else badgeHtml = `<span class="bg-[#E8EBF0] text-[#6B7A8D] text-[10px] font-medium px-2 py-1 rounded-full">Empty</span>`;
+      
+      // Active Toggle logic
+      const toggleClass = item.status === 'Empty' ? 'bg-[#C8CDD6]' : 'bg-[#1D9E75]';
+      const dotClass = item.status === 'Empty' ? 'left-0.5' : 'right-0.5';
+
+      html += `
+        <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
+          <td class="px-5 py-3 font-medium text-[#6B7A8D]">${item.status !== 'Empty' ? lotId : 'FS-100'+(i%9)}</td>
+          <td class="px-5 py-3 font-medium text-[#1A2333]">${ingId}</td>
+          <td class="px-5 py-3 font-medium ${item.status === 'Empty' ? 'text-[#9AA3AE]' : ''}">${item.name}</td>
+          <td class="px-5 py-3 text-right ${item.status === 'Low Stock' ? 'text-[#E24B4A] font-medium' : (item.status === 'Empty' ? 'text-[#9AA3AE]' : '')}">${item.qty.toFixed(1).replace('.0', '')}</td>
+          <td class="px-5 py-3 text-[#6B7A8D]">${item.unit}</td>
+          <td class="px-5 py-3 text-right font-medium ${item.status === 'Empty' ? 'text-[#9AA3AE]' : 'text-[#1A2333]'}">${item.price > 0 ? '฿' + item.price.toFixed(2) : '-'}</td>
+          <td class="px-5 py-3 ${item.status === 'Exp Soon' ? 'text-[#C96A00] font-medium' : (item.status === 'Empty' ? 'text-[#9AA3AE]' : 'text-[#1A2333]')}">${expDate}</td>
+          <td class="px-5 py-3 text-center">
+             <div class="flex items-center justify-center cursor-pointer" onclick="toggleToggle(this)">
+                <div class="w-7 h-4 ${toggleClass} rounded-full relative toggle-bg transition-colors"><div class="w-3 h-3 bg-white rounded-full absolute ${dotClass} top-0.5 shadow-sm toggle-dot transition-all"></div></div>
+             </div>
+          </td>
+          <td class="px-5 py-3 text-center">${badgeHtml}</td>
+          <td class="px-5 py-3 text-center"><span class="text-[#3D4A5C] hover:underline cursor-pointer">Edit</span></td>
+        </tr>
+      `;
+    }
+    tbody.innerHTML = html;
+
+    // --- 2. Populate 20 Empty Spreadsheet Rows ---
+    const spreadSheetTbody = document.getElementById('spreadsheet-tbody');
+    let sheetHtml = '';
+    for(let i=1; i<=20; i++) {
+        sheetHtml += `
+            <tr class="hover:bg-[#F9FAFB]">
+                <td class="border border-[#D1D5DB] text-center text-[#9AA3AE] bg-[#F9FAFB] select-none">${i}</td>
+                <td class="border border-[#D1D5DB] px-3 py-1.5 outline-none cursor-text spreadsheet-cell transition-colors" contenteditable="true"></td>
+                <td class="border border-[#D1D5DB] px-3 py-1.5 outline-none cursor-text spreadsheet-cell transition-colors" contenteditable="true"></td>
+                <td class="border border-[#D1D5DB] px-3 py-1.5 outline-none cursor-text spreadsheet-cell transition-colors" contenteditable="true"></td>
+                <td class="border border-[#D1D5DB] px-3 py-1.5 outline-none cursor-text spreadsheet-cell transition-colors" contenteditable="true"></td>
+                <td class="border border-[#D1D5DB] px-3 py-1.5 outline-none cursor-text spreadsheet-cell transition-colors" contenteditable="true"></td>
+                <td class="border border-[#D1D5DB] px-3 py-1.5 outline-none cursor-text spreadsheet-cell transition-colors" contenteditable="true"></td>
+            </tr>
+        `;
+    }
+    spreadSheetTbody.innerHTML = sheetHtml;
+  });
+
+  // --- Modal Logic ---
+  function openNewLotModal() {
+    document.getElementById('new-lot-modal').classList.remove('hidden');
+  }
+
+  function closeNewLotModal() {
+    document.getElementById('new-lot-modal').classList.add('hidden');
+  }
+
+  // --- Popup & General Logic ---
   document.addEventListener('click', function(event) {
     const popups = [
       { btn: 'btn-notifications', popup: 'popup-notifications' },
