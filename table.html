@@ -17,7 +17,7 @@
 </style>
 </head>
 <body class="font-sans bg-[#E4E7EC] m-0 p-0 box-border text-[#1A2333]">
-<div class="flex h-screen bg-[#E4E7EC] overflow-hidden relative">
+<div class="flex h-[100dvh] bg-[#E4E7EC] overflow-hidden relative">
   
   <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-[#1A2333]/40 z-[90] hidden lg:hidden opacity-0 transition-opacity duration-300"></div>
   
@@ -106,7 +106,7 @@
     </div>
   </div>
 
-  <div class="flex-1 flex flex-col overflow-hidden w-full">
+  <div class="flex-1 flex flex-col overflow-hidden w-full min-h-0">
     
     <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-4 sm:px-5 gap-2.5 shrink-0 z-[60]">
       
@@ -216,7 +216,7 @@
           <div class="text-[11px] sm:text-[12px] text-[#6B7A8D] mt-0.5">Real-time status, orders, and capacity</div>
         </div>
         <div class="flex items-center gap-2">
-           <div class="flex bg-[#E8EBF0] p-1 rounded-lg">
+           <div class="hidden md:flex bg-[#E8EBF0] p-1 rounded-lg">
               <button onclick="setView('grid')" id="view-grid-btn" class="p-1.5 rounded-md bg-white shadow-sm text-[#3D4A5C]">
                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
               </button>
@@ -284,7 +284,7 @@
       </div>
     </div>
 
-    <div id="grid-view" class="flex-1 overflow-y-auto p-3 sm:p-[18px] grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4 content-start">
+    <div id="grid-view" class="flex-1 overflow-y-auto min-h-0 p-3 sm:p-[18px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4 content-start">
       
       <div class="table-card bg-white border-t-4 border-t-[#0F6E56] border-x border-b border-[#C8CDD6] rounded-xl flex flex-col shadow-sm overflow-hidden">
         <div class="bg-[#E1F5EE]/40 p-2 sm:p-3.5 flex justify-between items-start gap-1">
@@ -303,7 +303,7 @@
               <span class="text-[10px] sm:text-[12px] font-medium text-[#1A2333]">#1040</span>
               <span class="bg-[#E1F5EE] text-[#0F6E56] text-[8px] sm:text-[9px] font-bold px-1 sm:px-1.5 py-0.5 rounded uppercase">Eat</span>
             </div>
-            <div class="hidden xs:flex flex-col gap-0.5 sm:gap-1">
+            <div class="flex flex-col gap-0.5 sm:gap-1">
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">1x Family</span><span>฿350</span></div>
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">2x Potato</span><span>฿70</span></div>
             </div>
@@ -333,7 +333,7 @@
               <span class="text-[10px] sm:text-[12px] font-medium text-[#1A2333]">#1042</span>
               <span class="bg-[#FEF3E2] text-[#C96A00] text-[8px] sm:text-[9px] font-bold px-1 sm:px-1.5 py-0.5 rounded uppercase">Cook</span>
             </div>
-            <div class="hidden xs:flex flex-col gap-0.5 sm:gap-1">
+            <div class="flex flex-col gap-0.5 sm:gap-1">
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">2x Zinger</span><span>฿180</span></div>
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">1x Cole</span><span>฿45</span></div>
             </div>
@@ -405,7 +405,7 @@
               <span class="text-[10px] sm:text-[12px] font-medium text-[#1A2333]">#1038</span>
               <span class="bg-[#D6DBE4] text-[#1A2333] text-[8px] sm:text-[9px] font-medium px-1 sm:px-1.5 py-0.5 rounded uppercase">Bill</span>
             </div>
-            <div class="hidden xs:flex flex-col gap-0.5 sm:gap-1">
+            <div class="flex flex-col gap-0.5 sm:gap-1">
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">3x Crispy</span><span>฿450</span></div>
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">1x Brownie</span><span>฿120</span></div>
             </div>
@@ -456,7 +456,7 @@
               <span class="text-[10px] sm:text-[12px] font-medium text-[#1A2333]">#1041</span>
               <span class="bg-[#E1F5EE] text-[#0F6E56] text-[8px] sm:text-[9px] font-bold px-1 sm:px-1.5 py-0.5 rounded uppercase">Eat</span>
             </div>
-            <div class="hidden xs:flex flex-col gap-0.5 sm:gap-1">
+            <div class="flex flex-col gap-0.5 sm:gap-1">
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">6x Wings</span><span>฿150</span></div>
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">2x Coke</span><span>฿60</span></div>
             </div>
@@ -486,7 +486,7 @@
               <span class="text-[10px] sm:text-[12px] font-medium text-[#1A2333]">#1044</span>
               <span class="bg-[#D0D5DE] text-[#1A2333] text-[8px] sm:text-[9px] font-bold px-1 sm:px-1.5 py-0.5 rounded uppercase">New</span>
             </div>
-            <div class="hidden xs:flex flex-col gap-0.5 sm:gap-1">
+            <div class="flex flex-col gap-0.5 sm:gap-1">
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">3x Crispy</span><span>฿450</span></div>
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">3x Fries</span><span>฿120</span></div>
             </div>
@@ -558,7 +558,7 @@
               <span class="text-[10px] sm:text-[12px] font-medium text-[#1A2333]">#1039</span>
               <span class="bg-[#E1F5EE] text-[#0F6E56] text-[8px] sm:text-[9px] font-bold px-1 sm:px-1.5 py-0.5 rounded uppercase">Eat</span>
             </div>
-            <div class="hidden xs:flex flex-col gap-0.5 sm:gap-1">
+            <div class="flex flex-col gap-0.5 sm:gap-1">
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">2x Family</span><span>฿700</span></div>
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">4x Pepsi</span><span>฿120</span></div>
             </div>
@@ -588,7 +588,7 @@
               <span class="text-[10px] sm:text-[12px] font-medium text-[#1A2333]">#1043</span>
               <span class="bg-[#E1F5EE] text-[#0F6E56] text-[8px] sm:text-[9px] font-bold px-1 sm:px-1.5 py-0.5 rounded uppercase">Ready</span>
             </div>
-            <div class="hidden xs:flex flex-col gap-0.5 sm:gap-1">
+            <div class="flex flex-col gap-0.5 sm:gap-1">
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">2x Twister</span><span>฿180</span></div>
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">1x Brownie</span><span>฿65</span></div>
             </div>
@@ -639,7 +639,7 @@
               <span class="text-[10px] sm:text-[12px] font-medium text-[#1A2333]">#1045</span>
               <span class="bg-[#FEF3E2] text-[#C96A00] text-[8px] sm:text-[9px] font-bold px-1 sm:px-1.5 py-0.5 rounded uppercase">Cook</span>
             </div>
-            <div class="hidden xs:flex flex-col gap-0.5 sm:gap-1">
+            <div class="flex flex-col gap-0.5 sm:gap-1">
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">1x Zinger</span><span>฿90</span></div>
               <div class="flex justify-between gap-1 text-[9px] sm:text-[11px] text-[#6B7A8D]"><span class="truncate">1x Fries</span><span>฿40</span></div>
             </div>
@@ -675,7 +675,7 @@
 
     </div>
 
-    <div id="list-view" class="hidden flex-1 overflow-y-auto p-4 sm:p-[18px]">
+    <div id="list-view" class="hidden flex-1 overflow-y-auto min-h-0 p-4 sm:p-[18px]">
        <div class="bg-white border border-[#C8CDD6] rounded-xl overflow-hidden shadow-sm">
           <div class="overflow-x-auto no-scrollbar">
              <table class="w-full text-left border-collapse whitespace-nowrap">
@@ -691,8 +691,7 @@
                    </tr>
                 </thead>
                 <tbody id="list-view-body" class="text-[12px] text-[#1A2333]">
-                   <!-- Populated by JS -->
-                </tbody>
+                   </tbody>
              </table>
           </div>
        </div>
@@ -925,7 +924,6 @@
   }
 </script>
 
-<!-- AI Chatbot Widget -->
 <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-[1000] font-sans">
   <button id="ai-chat-fab" onclick="toggleChat('open')" class="w-16 h-16 bg-[#3D4A5C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
     <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -1021,6 +1019,13 @@
       setTimeout(() => overlay.classList.add('hidden'), 300);
     }
   }
+
+  // --- NEW: Automatically show List View on Mobile devices ---
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth < 768) {
+      setView('list');
+    }
+  });
 </script>
 </body>
 </html>
