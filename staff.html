@@ -7,9 +7,11 @@
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans bg-[#E4E7EC] m-0 p-0 box-border text-[#1A2333]">
-<div class="flex h-screen bg-[#E4E7EC] overflow-hidden">
+<div class="flex h-screen bg-[#E4E7EC] overflow-hidden relative">
   
-  <div class="w-[210px] bg-[#E8EBF0] flex flex-col shrink-0 border-r border-[#C8CDD6]">
+  <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-[#1A2333]/40 z-[90] hidden lg:hidden opacity-0 transition-opacity duration-300"></div>
+  
+  <div id="sidebar-menu" class="w-[210px] bg-[#E8EBF0] flex flex-col shrink-0 border-r border-[#C8CDD6] absolute lg:static inset-y-0 left-0 z-[100] transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out h-full">
     <div class="p-[14px_16px] border-b border-[#C8CDD6] flex items-center gap-2.5">
       <div class="w-[34px] h-[34px] flex items-center justify-center shrink-0">
         <svg class="w-[28px] h-[28px]" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -94,14 +96,19 @@
     </div>
   </div>
 
-  <div class="flex-1 flex flex-col overflow-hidden">
+  <div class="flex-1 flex flex-col overflow-hidden w-full">
     
-    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-5 gap-2.5 shrink-0 z-[60]">
+    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-4 sm:px-5 gap-2.5 shrink-0 z-[60]">
+      
+      <button onclick="toggleMobileMenu()" class="lg:hidden p-1.5 -ml-2 rounded-lg text-[#6B7A8D] hover:bg-[#F9FAFB] outline-none">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+
       
       <div class="relative">
-        <div id="btn-profile" onclick="togglePopup('popup-profile')" class="flex items-center gap-2.5 cursor-pointer hover:bg-[#F9FAFB] p-1.5 -ml-1.5 rounded-lg transition-colors outline-none">
+        <div id="btn-profile" onclick="togglePopup('popup-profile')" class="flex items-center gap-2.5 cursor-pointer hover:bg-[#F9FAFB] p-1.5 sm:-ml-1.5 rounded-lg transition-colors outline-none">
           <div class="w-[28px] h-[28px] rounded-full bg-[#D6DBE4] flex items-center justify-center text-[11px] font-medium text-[#1A2333]">TS</div>
-          <div>
+          <div class="hidden sm:block">
             <div class="text-[13px] font-medium text-[#1A2333] leading-tight">Thanachot S.</div>
             <div class="text-[10px] text-[#9AA3AE]">Owner</div>
           </div>
@@ -657,6 +664,26 @@
     this.style.height = 'auto';
     this.style.height = (this.scrollHeight) + 'px';
   });
+</script>
+<script>
+
+  function toggleMobileMenu() {
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('mobile-overlay');
+
+    if (sidebar.classList.contains('-translate-x-full')) {
+      // Open
+      sidebar.classList.remove('-translate-x-full');
+      overlay.classList.remove('hidden');
+      setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+    } else {
+      // Close
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('opacity-0');
+      setTimeout(() => overlay.classList.add('hidden'), 300);
+    }
+  }
+
 </script>
 </body>
 </html>
