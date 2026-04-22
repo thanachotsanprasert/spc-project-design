@@ -7,9 +7,11 @@
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans bg-[#E4E7EC] m-0 p-0 box-border text-[#1A2333]">
-<div class="flex h-screen bg-[#E4E7EC] overflow-hidden">
+<div class="flex h-screen bg-[#E4E7EC] overflow-hidden relative">
   
-  <div class="w-[210px] bg-[#E8EBF0] flex flex-col shrink-0 border-r border-[#C8CDD6]">
+  <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-[#1A2333]/40 z-[90] hidden lg:hidden opacity-0 transition-opacity duration-300"></div>
+
+  <div id="sidebar-menu" class="w-[210px] bg-[#E8EBF0] flex flex-col shrink-0 border-r border-[#C8CDD6] absolute lg:static inset-y-0 left-0 z-[100] transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out h-full">
     <div class="p-[14px_16px] border-b border-[#C8CDD6] flex items-center gap-2.5">
       <div class="w-[34px] h-[34px] flex items-center justify-center shrink-0">
         <svg class="w-[28px] h-[28px]" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -94,15 +96,18 @@
     </div>
   </div>
 
-  <div class="flex-1 flex flex-col overflow-hidden">
+  <div class="flex-1 flex flex-col overflow-hidden w-full">
     
-    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-5 gap-2.5 shrink-0 z-[60]">
+    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-4 sm:px-5 gap-2.5 shrink-0 z-[60]">
       
+      <button onclick="toggleMobileMenu()" class="lg:hidden p-1.5 -ml-2 rounded-lg text-[#6B7A8D] hover:bg-[#F9FAFB] outline-none">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+
       <div class="relative">
-        <div id="btn-profile" onclick="togglePopup('popup-profile')" class="flex items-center gap-2.5 cursor-pointer hover:bg-[#F9FAFB] p-1.5 -ml-1.5 rounded-lg transition-colors outline-none">
+        <div id="btn-profile" onclick="togglePopup('popup-profile')" class="flex items-center gap-2.5 cursor-pointer hover:bg-[#F9FAFB] p-1.5 sm:-ml-1.5 rounded-lg transition-colors outline-none">
           <div class="w-[28px] h-[28px] rounded-full bg-[#D6DBE4] flex items-center justify-center text-[11px] font-medium text-[#1A2333]">TS</div>
-          <div>
-            <div class="text-[13px] font-medium text-[#1A2333] leading-tight">Teddy Kurt</div>
+          <div class="hidden sm:block"> <div class="text-[13px] font-medium text-[#1A2333] leading-tight">Teddy Kurt</div>
             <div class="text-[10px] text-[#9AA3AE]">Owner</div>
           </div>
         </div>
@@ -140,7 +145,7 @@
             <span class="absolute top-1 right-1 w-2 h-2 bg-[#E24B4A] rounded-full border border-white"></span>
           </button>
           
-          <div id="popup-notifications" class="hidden absolute top-[110%] right-0 mt-1 w-72 bg-white border border-[#C8CDD6] rounded-xl shadow-lg z-50 overflow-hidden">
+          <div id="popup-notifications" class="hidden absolute top-[110%] right-0 mt-1 w-[260px] sm:w-72 bg-white border border-[#C8CDD6] rounded-xl shadow-lg z-50 overflow-hidden">
              <div class="px-4 py-2 border-b border-[#E8EBF0] font-semibold text-[13px] text-[#1A2333] bg-[#F9FAFB]">Notifications</div>
              <div class="flex flex-col max-h-64 overflow-y-auto">
                 <div class="px-4 py-3 border-b border-[#E8EBF0] hover:bg-[#F9FAFB] cursor-pointer flex flex-col gap-1 transition-colors">
@@ -192,24 +197,24 @@
       </div>
     </div>
 
-    <div class="pt-5 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex items-end justify-between">
+    <div class="pt-5 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
       <div>
         <div class="text-[20px] font-medium text-[#1A2333]">แดชบอร์ด</div>
         <div class="text-[12px] text-[#6B7A8D] mt-0.5">แสดงข้อมูลสำหรับการจัดการร้านอาหาร</div>
       </div>
-      <div class="flex items-center gap-1.5" id="period-selectors">
-        <button onclick="updateDashboard('today')" id="btn-today" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer">วันนี้</button>
-        <button onclick="updateDashboard('week')" id="btn-week" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#B4BAC4] bg-[#D6DBE4] text-[#1A2333] font-medium cursor-pointer flex items-center gap-1.5">
+      <div class="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0" id="period-selectors">
+        <button onclick="updateDashboard('today')" id="btn-today" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer whitespace-nowrap">วันนี้</button>
+        <button onclick="updateDashboard('week')" id="btn-week" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#B4BAC4] bg-[#D6DBE4] text-[#1A2333] font-medium cursor-pointer flex items-center gap-1.5 whitespace-nowrap">
           สัปดาห์นี้
           <svg class="w-[11px] h-[11px] fill-[#6B7A8D]" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
         </button>
-        <button onclick="updateDashboard('month')" id="btn-month" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer">เดือนนี้</button>
+        <button onclick="updateDashboard('month')" id="btn-month" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer whitespace-nowrap">เดือนนี้</button>
       </div>
     </div>
 
     <div class="flex-1 overflow-y-auto pt-4 px-[18px] pb-4 flex flex-col gap-[14px]">
       
-      <div class="grid grid-cols-4 gap-2.5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
         <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
           <div class="flex items-center justify-between mb-2">
             <div class="text-[11px] text-[#6B7A8D]">รายได้รวม</div>
@@ -247,7 +252,7 @@
         </a>
       </div>
 
-      <div class="grid grid-cols-[1.55fr_1fr] gap-[14px]">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.55fr_1fr] gap-[14px]">
         
         <a href="order.html" class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-4 block group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
           <div class="flex items-center justify-between mb-3">
@@ -313,7 +318,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-[14px]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[14px]">
         
         <a href="stock.html" class="bg-white border border-[#C8CDD6] rounded-xl py-3.5 px-4 flex flex-col group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
           <div class="flex items-center justify-between mb-3 border-b border-[#E8EBF0] pb-2">
@@ -405,9 +410,7 @@
   </div>
 </div>
 
-<!-- พุงกางMAN AI Chatbot -->
-<div id="ai-chat-widget" class="fixed bottom-6 right-6 z-[1000] font-sans">
-  <!-- Floating Button (FAB) -->
+<div id="ai-chat-widget" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1000] font-sans">
   <button id="ai-chat-fab" onclick="toggleChat('open')" class="w-16 h-16 bg-[#3D4A5C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
     <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
       <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"></path>
@@ -415,9 +418,7 @@
     <div class="absolute -top-1 -right-1 w-5 h-5 bg-[#E24B4A] border-2 border-white rounded-full flex items-center justify-center text-[10px] font-bold">1</div>
   </button>
 
-  <!-- Chat Window -->
-  <div id="ai-chat-window" class="hidden flex-col bg-white rounded-2xl shadow-2xl border border-[#C8CDD6] overflow-hidden transition-all duration-300 origin-bottom-right" style="width: 500px; height: 750px; max-height: 85vh; max-width: 90vw;">
-    <!-- Header -->
+  <div id="ai-chat-window" class="hidden flex-col bg-white rounded-2xl shadow-2xl border border-[#C8CDD6] overflow-hidden transition-all duration-300 origin-bottom-right" style="width: 500px; height: 750px; max-height: 85vh; max-width: calc(100vw - 32px);">
     <div class="bg-[#3D4A5C] p-5 flex items-center justify-between text-white shrink-0 cursor-pointer" onclick="toggleChat('minimize')">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-inner">
@@ -441,9 +442,7 @@
       </div>
     </div>
 
-    <!-- Message Area -->
     <div id="ai-messages" class="flex-1 overflow-y-auto p-6 bg-[#F9FAFB] flex flex-col gap-4">
-      <!-- AI Message -->
       <div class="flex flex-col gap-1.5 max-w-[85%]">
         <div class="bg-white border border-[#E8EBF0] p-4 rounded-2xl rounded-tl-none shadow-sm text-[14px] text-[#1A2333] leading-relaxed">
           สวัสดีครับ! ผม <span class="font-bold text-[#3D4A5C]">พุงกางMAN</span> ยินดีที่ได้รู้จักครับ 🙏
@@ -461,7 +460,6 @@
       </div>
     </div>
 
-    <!-- Input Area -->
     <div class="p-5 bg-white border-t border-[#E8EBF0]">
       <div class="flex items-end gap-3 bg-[#F4F6F9] rounded-2xl p-2 border border-transparent focus-within:border-[#C8CDD6] transition-all">
         <textarea id="ai-input" rows="1" placeholder="พิมพ์ข้อความคุยกับ พุงกางMAN..." class="flex-1 bg-transparent border-none outline-none text-[14px] py-2 px-2 resize-none max-h-32"></textarea>
@@ -477,6 +475,24 @@
 </div>
 
 <script>
+  // --- Mobile Sidebar Logic ---
+  function toggleMobileMenu() {
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('mobile-overlay');
+
+    if (sidebar.classList.contains('-translate-x-full')) {
+      // Open
+      sidebar.classList.remove('-translate-x-full');
+      overlay.classList.remove('hidden');
+      setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+    } else {
+      // Close
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('opacity-0');
+      setTimeout(() => overlay.classList.add('hidden'), 300);
+    }
+  }
+
   function toggleChat(action) {
     const fab = document.getElementById('ai-chat-fab');
     const window = document.getElementById('ai-chat-window');
@@ -661,8 +677,8 @@
     }
   };
 
-  const activeBtnClasses = "text-[12px] py-[5px] px-[11px] rounded-lg border border-[#B4BAC4] bg-[#D6DBE4] text-[#1A2333] font-medium cursor-pointer flex items-center gap-1.5 transition-colors";
-  const inactiveBtnClasses = "text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer hover:bg-[#E8EBF0] transition-colors";
+  const activeBtnClasses = "text-[12px] py-[5px] px-[11px] rounded-lg border border-[#B4BAC4] bg-[#D6DBE4] text-[#1A2333] font-medium cursor-pointer flex items-center gap-1.5 transition-colors whitespace-nowrap";
+  const inactiveBtnClasses = "text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer hover:bg-[#E8EBF0] transition-colors whitespace-nowrap";
   const activeIconHtml = `<svg class="w-[11px] h-[11px] fill-[#6B7A8D]" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>`;
 
   function updateDashboard(period) {

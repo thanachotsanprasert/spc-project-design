@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>พุงกาง – Staff Management</title>
+<title>พุงกาง – Dashboard</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans bg-[#E4E7EC] m-0 p-0 box-border text-[#1A2333]">
-<div class="flex h-screen bg-[#E4E7EC] overflow-hidden">
+<div class="flex h-screen bg-[#E4E7EC] overflow-hidden relative">
   
-  <div class="w-[210px] bg-[#E8EBF0] flex flex-col shrink-0 border-r border-[#C8CDD6]">
+  <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-[#1A2333]/40 z-[90] hidden lg:hidden opacity-0 transition-opacity duration-300"></div>
+
+  <div id="sidebar-menu" class="w-[210px] bg-[#E8EBF0] flex flex-col shrink-0 border-r border-[#C8CDD6] absolute lg:static inset-y-0 left-0 z-[100] transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out h-full">
     <div class="p-[14px_16px] border-b border-[#C8CDD6] flex items-center gap-2.5">
       <div class="w-[34px] h-[34px] flex items-center justify-center shrink-0">
         <svg class="w-[28px] h-[28px]" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +27,7 @@
     </div>
 
     <div class="flex-1 overflow-y-auto pb-4">
-      <a href="index.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] mt-2 mb-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
+      <a href="index.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] mt-2 mb-[1px] cursor-pointer text-[13px] bg-[#D6DBE4] text-[#1A2333] font-medium decoration-none">
         <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
         Dashboard
       </a>
@@ -80,7 +82,7 @@
 
       <div class="pt-[16px] px-[16px] pb-1 text-[10px] text-[#9AA3AE] uppercase tracking-[0.07em] font-semibold">Credentials</div>
 
-      <a href="staff.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] bg-[#D6DBE4] text-[#1A2333] font-medium decoration-none">
+      <a href="staff.html" class="flex items-center gap-[9px] py-[7px] px-[12px] rounded-lg mx-[6px] my-[1px] cursor-pointer text-[13px] text-[#6B7A8D] hover:bg-[#D6DBE4] hover:text-[#1A2333] decoration-none">
         <svg class="w-[18px] h-[18px] shrink-0 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         พนักงาน
       </a>
@@ -94,15 +96,18 @@
     </div>
   </div>
 
-  <div class="flex-1 flex flex-col overflow-hidden">
+  <div class="flex-1 flex flex-col overflow-hidden w-full">
     
-    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-5 gap-2.5 shrink-0 z-[60]">
+    <div class="h-[54px] bg-white border-b border-[#C8CDD6] flex items-center px-4 sm:px-5 gap-2.5 shrink-0 z-[60]">
       
+      <button onclick="toggleMobileMenu()" class="lg:hidden p-1.5 -ml-2 rounded-lg text-[#6B7A8D] hover:bg-[#F9FAFB] outline-none">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+
       <div class="relative">
-        <div id="btn-profile" onclick="togglePopup('popup-profile')" class="flex items-center gap-2.5 cursor-pointer hover:bg-[#F9FAFB] p-1.5 -ml-1.5 rounded-lg transition-colors outline-none">
+        <div id="btn-profile" onclick="togglePopup('popup-profile')" class="flex items-center gap-2.5 cursor-pointer hover:bg-[#F9FAFB] p-1.5 sm:-ml-1.5 rounded-lg transition-colors outline-none">
           <div class="w-[28px] h-[28px] rounded-full bg-[#D6DBE4] flex items-center justify-center text-[11px] font-medium text-[#1A2333]">TS</div>
-          <div>
-            <div class="text-[13px] font-medium text-[#1A2333] leading-tight">Thanachot S.</div>
+          <div class="hidden sm:block"> <div class="text-[13px] font-medium text-[#1A2333] leading-tight">Teddy Kurt</div>
             <div class="text-[10px] text-[#9AA3AE]">Owner</div>
           </div>
         </div>
@@ -140,7 +145,7 @@
             <span class="absolute top-1 right-1 w-2 h-2 bg-[#E24B4A] rounded-full border border-white"></span>
           </button>
           
-          <div id="popup-notifications" class="hidden absolute top-[110%] right-0 mt-1 w-72 bg-white border border-[#C8CDD6] rounded-xl shadow-lg z-50 overflow-hidden">
+          <div id="popup-notifications" class="hidden absolute top-[110%] right-0 mt-1 w-[260px] sm:w-72 bg-white border border-[#C8CDD6] rounded-xl shadow-lg z-50 overflow-hidden">
              <div class="px-4 py-2 border-b border-[#E8EBF0] font-semibold text-[13px] text-[#1A2333] bg-[#F9FAFB]">Notifications</div>
              <div class="flex flex-col max-h-64 overflow-y-auto">
                 <div class="px-4 py-3 border-b border-[#E8EBF0] hover:bg-[#F9FAFB] cursor-pointer flex flex-col gap-1 transition-colors">
@@ -192,274 +197,203 @@
       </div>
     </div>
 
-    <div class="pt-4 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex items-center justify-between shrink-0">
-      <div class="flex flex-col">
-        <div class="text-[20px] font-medium text-[#1A2333]">Staff Management</div>
-        <div class="text-[12px] text-[#6B7A8D] mt-0.5">Manage personnel, roles, access modules, and security</div>
+    <div class="pt-5 px-5 pb-[14px] bg-white border-b border-[#C8CDD6] flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+      <div>
+        <div class="text-[20px] font-medium text-[#1A2333]">แดชบอร์ด</div>
+        <div class="text-[12px] text-[#6B7A8D] mt-0.5">แสดงข้อมูลสำหรับการจัดการร้านอาหาร</div>
       </div>
-
-      <div class="flex items-center gap-6 hidden md:flex">
-        <div class="flex flex-col">
-          <div class="flex items-center gap-1.5 mb-0.5"><span class="text-[10px] text-[#6B7A8D] uppercase tracking-wider font-semibold">Total Staff</span><svg class="w-3 h-3 stroke-[#3D4A5C]" fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
-          <div class="text-[18px] font-medium text-[#1A2333] leading-none">12</div>
-        </div>
-        
-        <div class="flex flex-col border-l border-[#E8EBF0] pl-6">
-          <div class="flex items-center gap-1.5 mb-0.5"><span class="text-[10px] text-[#6B7A8D] uppercase tracking-wider font-semibold">Active Today</span><div class="w-1.5 h-1.5 rounded-full bg-[#1D9E75]"></div></div>
-          <div class="text-[18px] font-medium text-[#1A2333] leading-none">8</div>
-        </div>
-        
-        <div class="flex flex-col border-l border-[#E8EBF0] pl-6">
-          <div class="flex items-center gap-1.5 mb-0.5"><span class="text-[10px] text-[#6B7A8D] uppercase tracking-wider font-semibold">Managers</span><svg class="w-3 h-3 stroke-[#6B7A8D]" fill="none" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
-          <div class="text-[18px] font-medium text-[#1A2333] leading-none">2</div>
-        </div>
-        
-        <div class="flex flex-col border-l border-[#E8EBF0] pl-6">
-          <div class="flex items-center gap-1.5 mb-0.5"><span class="text-[10px] text-[#E24B4A] uppercase tracking-wider font-semibold">Locked</span><svg class="w-3 h-3 stroke-[#E24B4A]" fill="none" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
-          <div class="text-[18px] font-medium text-[#1A2333] leading-none">1</div>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <button class="text-[12px] py-[6px] px-[14px] rounded-lg border border-transparent bg-[#3D4A5C] text-white font-medium cursor-pointer hover:bg-[#2C3643] flex items-center gap-1.5 shadow-sm">
-          <svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          Add New Staff
+      <div class="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0" id="period-selectors">
+        <button onclick="updateDashboard('today')" id="btn-today" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer whitespace-nowrap">วันนี้</button>
+        <button onclick="updateDashboard('week')" id="btn-week" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#B4BAC4] bg-[#D6DBE4] text-[#1A2333] font-medium cursor-pointer flex items-center gap-1.5 whitespace-nowrap">
+          สัปดาห์นี้
+          <svg class="w-[11px] h-[11px] fill-[#6B7A8D]" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
         </button>
+        <button onclick="updateDashboard('month')" id="btn-month" class="text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer whitespace-nowrap">เดือนนี้</button>
       </div>
     </div>
 
-    <div class="flex-1 overflow-y-auto p-[18px] flex flex-col gap-6">
+    <div class="flex-1 overflow-y-auto pt-4 px-[18px] pb-4 flex flex-col gap-[14px]">
       
-      <div class="bg-white border border-[#C8CDD6] rounded-xl flex flex-col overflow-hidden shadow-sm">
-        <div class="px-5 py-4 border-b border-[#E8EBF0] flex justify-between items-center bg-[#FCFDFE]">
-          <h2 class="text-[14px] font-semibold text-[#1A2333]">Staff Directory</h2>
-          <div class="flex gap-2">
-            <select class="text-[11px] border border-[#C8CDD6] rounded px-2 py-1 text-[#6B7A8D] outline-none">
-              <option>All Roles</option>
-              <option>Manager</option>
-              <option>Cashier</option>
-              <option>Server</option>
-              <option>Kitchen</option>
-            </select>
-            <input type="text" placeholder="Search name or email..." class="text-[11px] border border-[#C8CDD6] rounded px-2 py-1 text-[#1A2333] outline-none w-48">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-[11px] text-[#6B7A8D]">รายได้รวม</div>
+            <div class="w-[7px] h-[7px] rounded-full bg-[#1D9E75]"></div>
           </div>
+          <div id="metric-revenue" class="text-[21px] font-medium text-[#1A2333] leading-tight">฿48,320</div>
+          <div id="metric-revenue-change" class="text-[11px] mt-1 text-[#1D9E75]">↑ +12.4% เทียบกับสัปดาห์ที่แล้ว</div>
         </div>
         
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse whitespace-nowrap">
-            <thead>
-              <tr class="bg-[#F9FAFB] text-[#6B7A8D] text-[11px] uppercase tracking-wider border-b border-[#E8EBF0]">
-                <th class="px-5 py-3 font-medium">Staff Member</th>
-                <th class="px-5 py-3 font-medium">Role & Manager</th>
-                <th class="px-5 py-3 font-medium">Area & Access</th>
-                <th class="px-5 py-3 font-medium">Last Login</th>
-                <th class="px-5 py-3 font-medium text-center">Status</th>
-                <th class="px-5 py-3 font-medium text-center">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="text-[12px] text-[#1A2333]">
-              
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-[#D6DBE4] flex items-center justify-center text-[11px] font-medium text-[#1A2333]">TS</div>
-                    <div class="flex flex-col">
-                      <span class="font-medium text-[#1A2333]">Thanachot S.</span>
-                      <span class="text-[10px] text-[#6B7A8D]">thanachot@pungkang.com</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span class="font-medium text-[#3D4A5C]">Owner / Manager</span>
-                    <span class="text-[10px] text-[#9AA3AE] italic">System Admin</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-1">
-                    <span class="text-[#6B7A8D]">All Areas</span>
-                    <div class="flex gap-1">
-                      <span class="bg-[#E8EBF0] text-[#3D4A5C] text-[9px] px-1.5 py-0.5 rounded">Full Access</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 08:15</td>
-                <td class="px-5 py-3 text-center">
-                   <div class="flex flex-col items-center gap-1">
-                      <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative cursor-pointer"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div></div>
-                      <span class="text-[9px] font-medium text-[#1D9E75]">Active</span>
-                   </div>
-                </td>
-                <td class="px-5 py-3 text-center">
-                  <div class="flex justify-center gap-3">
-                    <button class="text-[#6B7A8D] hover:text-[#3D4A5C]" title="Notes / Log">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    </button>
-                    <button class="text-[#C8CDD6] cursor-not-allowed" title="Manage Access (Disabled for Owner)">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><circle cx="12" cy="11" r="3"></circle><path d="M17 18.5c-1.4-1-3.1-1.5-5-1.5s-3.6.5-5 1.5"></path></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#C96A00]" title="Account Settings">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#3D4A5C]" title="Edit">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-[#E1F5EE] flex items-center justify-center text-[11px] font-medium text-[#0F6E56]">JD</div>
-                    <div class="flex flex-col">
-                      <span class="font-medium text-[#1A2333]">Jane Doe</span>
-                      <span class="text-[10px] text-[#6B7A8D]">jane.d@pungkang.com</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span class="font-medium text-[#1A2333]">Cashier</span>
-                    <span class="text-[10px] text-[#9AA3AE]">Manager: Thanachot S.</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-1">
-                    <span class="text-[#6B7A8D]">Front Counter</span>
-                    <div class="flex gap-1">
-                      <span class="bg-[#FEF3E2] text-[#C96A00] text-[9px] px-1.5 py-0.5 rounded">POS Module</span>
-                      <span class="bg-[#F9FAFB] border border-[#E8EBF0] text-[#6B7A8D] text-[9px] px-1.5 py-0.5 rounded">Orders</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 10:30</td>
-                <td class="px-5 py-3 text-center">
-                   <div class="flex flex-col items-center gap-1">
-                      <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative cursor-pointer"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div></div>
-                      <span class="text-[9px] font-medium text-[#1D9E75]">Active</span>
-                   </div>
-                </td>
-                <td class="px-5 py-3 text-center">
-                  <div class="flex justify-center gap-3">
-                    <button class="text-[#6B7A8D] hover:text-[#3D4A5C]" title="Notes / Log">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#E24B4A]" title="Manage Access">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><circle cx="12" cy="11" r="3"></circle><path d="M17 18.5c-1.4-1-3.1-1.5-5-1.5s-3.6.5-5 1.5"></path></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#C96A00]" title="Account Settings">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#3D4A5C]" title="Edit">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB] opacity-75">
-                <td class="px-5 py-3">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-[#FEF3E2] flex items-center justify-center text-[11px] font-medium text-[#C96A00]">MK</div>
-                    <div class="flex flex-col">
-                      <span class="font-medium text-[#1A2333]">Mike K.</span>
-                      <span class="text-[10px] text-[#6B7A8D]">mike.k@pungkang.com</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span class="font-medium text-[#1A2333]">Server</span>
-                    <span class="text-[10px] text-[#9AA3AE]">Manager: Thanachot S.</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-1">
-                    <span class="text-[#6B7A8D]">Tables 01-08</span>
-                    <div class="flex gap-1">
-                      <span class="bg-[#F9FAFB] border border-[#E8EBF0] text-[#6B7A8D] text-[9px] px-1.5 py-0.5 rounded">Table App</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-[#6B7A8D]">18 Apr 2026</td>
-                <td class="px-5 py-3 text-center">
-                   <div class="flex flex-col items-center gap-1">
-                      <div class="w-7 h-4 bg-[#E24B4A] rounded-full relative cursor-pointer"><div class="w-3 h-3 bg-white rounded-full absolute left-0.5 top-0.5 shadow-sm"></div></div>
-                      <span class="text-[9px] font-medium text-[#E24B4A]">Locked</span>
-                   </div>
-                </td>
-                <td class="px-5 py-3 text-center">
-                  <div class="flex justify-center gap-3">
-                    <button class="text-[#6B7A8D] hover:text-[#3D4A5C]" title="Notes / Log">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    </button>
-                    <button class="text-[#E24B4A] hover:text-[#1D9E75]" title="Manage Access">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><circle cx="12" cy="11" r="3"></circle><path d="M17 18.5c-1.4-1-3.1-1.5-5-1.5s-3.6.5-5 1.5"></path></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#C96A00]" title="Account Settings">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#3D4A5C]" title="Edit">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-              <tr class="border-b border-[#E8EBF0] hover:bg-[#F9FAFB]">
-                <td class="px-5 py-3">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-[#FCEBEB] flex items-center justify-center text-[11px] font-medium text-[#E24B4A]">CG</div>
-                    <div class="flex flex-col">
-                      <span class="font-medium text-[#1A2333]">Chef Gordon</span>
-                      <span class="text-[10px] text-[#6B7A8D]">kitchen@pungkang.com</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-0.5">
-                    <span class="font-medium text-[#1A2333]">Head Chef</span>
-                    <span class="text-[10px] text-[#9AA3AE]">Manager: Thanachot S.</span>
-                  </div>
-                </td>
-                <td class="px-5 py-3">
-                  <div class="flex flex-col gap-1">
-                    <span class="text-[#6B7A8D]">Kitchen Setup</span>
-                    <div class="flex gap-1">
-                      <span class="bg-[#D0D5DE] text-[#1A2333] text-[9px] px-1.5 py-0.5 rounded">KDS Screen</span>
-                      <span class="bg-[#E1F5EE] text-[#0F6E56] text-[9px] px-1.5 py-0.5 rounded">Stock</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-5 py-3 text-[#6B7A8D]">Today, 06:45</td>
-                <td class="px-5 py-3 text-center">
-                   <div class="flex flex-col items-center gap-1">
-                      <div class="w-7 h-4 bg-[#1D9E75] rounded-full relative cursor-pointer"><div class="w-3 h-3 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div></div>
-                      <span class="text-[9px] font-medium text-[#1D9E75]">Active</span>
-                   </div>
-                </td>
-                <td class="px-5 py-3 text-center">
-                  <div class="flex justify-center gap-3">
-                    <button class="text-[#6B7A8D] hover:text-[#3D4A5C]" title="Notes / Log">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#E24B4A]" title="Manage Access">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><circle cx="12" cy="11" r="3"></circle><path d="M17 18.5c-1.4-1-3.1-1.5-5-1.5s-3.6.5-5 1.5"></path></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#C96A00]" title="Account Settings">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </button>
-                    <button class="text-[#6B7A8D] hover:text-[#3D4A5C]" title="Edit">
-                      <svg class="w-[15px] h-[15px] stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
+        <a href="order.html" class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px] block hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-[11px] text-[#6B7A8D]">ออเดอร์ <span id="orders-label">สัปดาห์นี้</span></div>
+            <div class="w-[7px] h-[7px] rounded-full bg-[#3D4A5C]"></div>
+          </div>
+          <div id="metric-orders" class="text-[21px] font-medium text-[#1A2333] leading-tight">345</div>
+          <div id="metric-orders-change" class="text-[11px] mt-1 text-[#1D9E75]">↑ +12 เทียบกับสัปดาห์ที่แล้ว</div>
+        </a>
+        
+        <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px]">
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-[11px] text-[#6B7A8D]">ยอดสั่งซื้อเฉลี่ย</div>
+            <div class="w-[7px] h-[7px] rounded-full bg-[#E24B4A]"></div>
+          </div>
+          <div id="metric-aov" class="text-[21px] font-medium text-[#1A2333] leading-tight">฿555</div>
+          <div id="metric-aov-change" class="text-[11px] mt-1 text-[#E24B4A]">↓ -2.1% เทียบกับสัปดาห์ที่แล้ว</div>
         </div>
+        
+        <a href="table.html" class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-[15px] block hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
+          <div class="flex items-center justify-between mb-2">
+            <div class="text-[11px] text-[#6B7A8D]">โต๊ะที่มีลูกค้า</div>
+            <div class="w-[7px] h-[7px] rounded-full bg-[#C96A00]"></div>
+          </div>
+          <div class="text-[21px] font-medium text-[#1A2333] leading-tight">8 / 15</div>
+          <div class="text-[11px] mt-1 text-[#9AA3AE]">อัตราการใช้โต๊ะ 53%</div>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1.55fr_1fr] gap-[14px]">
+        
+        <a href="order.html" class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-4 block group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[13px] font-medium text-[#1A2333]">ออเดอร์ปัจจุบัน</span>
+            <span class="text-[11px] text-[#6B7A8D] group-hover:text-[#3D4A5C]">ดูทั้งหมด →</span>
+          </div>
+          
+          <div class="flex items-center gap-2 py-[7px] border-b border-[#C8CDD6]">
+            <div class="text-[12px] font-medium text-[#1A2333] min-w-[40px]">#1042</div>
+            <div class="flex-1 text-[12px] text-[#6B7A8D] whitespace-nowrap overflow-hidden text-ellipsis">Zinger Burger ×2, Coleslaw, Pepsi</div>
+            <div class="text-[10px] py-[2px] px-2 rounded-full font-medium min-w-[58px] text-center bg-[#FEF3E2] text-[#C96A00]">Cooking</div>
+            <div class="text-[11px] text-[#9AA3AE] min-w-[38px] text-right">12 min</div>
+          </div>
+          
+          <div class="flex items-center gap-2 py-[7px] border-b border-[#C8CDD6]">
+            <div class="text-[12px] font-medium text-[#1A2333] min-w-[40px]">#1043</div>
+            <div class="flex-1 text-[12px] text-[#6B7A8D] whitespace-nowrap overflow-hidden text-ellipsis">Family Bucket ×1, Mashed Potato ×2</div>
+            <div class="text-[10px] py-[2px] px-2 rounded-full font-medium min-w-[58px] text-center bg-[#E1F5EE] text-[#0F6E56]">Ready</div>
+            <div class="text-[11px] text-[#9AA3AE] min-w-[38px] text-right">3 min</div>
+          </div>
+          
+          <div class="flex items-center gap-2 py-[7px] border-b border-[#C8CDD6]">
+            <div class="text-[12px] font-medium text-[#1A2333] min-w-[40px]">#1044</div>
+            <div class="flex-1 text-[12px] text-[#6B7A8D] whitespace-nowrap overflow-hidden text-ellipsis">Crispy Combo ×3, Corn ×3, Fries ×3</div>
+            <div class="text-[10px] py-[2px] px-2 rounded-full font-medium min-w-[58px] text-center bg-[#D0D5DE] text-[#1A2333]">New</div>
+            <div class="text-[11px] text-[#9AA3AE] min-w-[38px] text-right">Just now</div>
+          </div>
+          
+          <div class="flex items-center gap-2 py-[7px] border-b border-[#C8CDD6]">
+            <div class="text-[12px] font-medium text-[#1A2333] min-w-[40px]">#1040</div>
+            <div class="flex-1 text-[12px] text-[#6B7A8D] whitespace-nowrap overflow-hidden text-ellipsis">Twister Wrap ×2, Brownie ×1</div>
+            <div class="text-[10px] py-[2px] px-2 rounded-full font-medium min-w-[58px] text-center bg-[#D6DBE4] text-[#1A2333]">Paid</div>
+            <div class="text-[11px] text-[#9AA3AE] min-w-[38px] text-right">22 min</div>
+          </div>
+          
+          <div class="flex items-center gap-2 py-[7px]">
+            <div class="text-[12px] font-medium text-[#1A2333] min-w-[40px]">#1041</div>
+            <div class="flex-1 text-[12px] text-[#6B7A8D] whitespace-nowrap overflow-hidden text-ellipsis">Hot Wings ×6, Dipping Sauce ×2</div>
+            <div class="text-[10px] py-[2px] px-2 rounded-full font-medium min-w-[58px] text-center bg-[#FEF3E2] text-[#C96A00]">Cooking</div>
+            <div class="text-[11px] text-[#9AA3AE] min-w-[38px] text-right">8 min</div>
+          </div>
+        </a>
+
+        <div class="flex flex-col gap-[14px]">
+          <div class="bg-white border border-[#C8CDD6] rounded-xl py-[14px] px-4 h-full flex flex-col">
+            <div class="flex items-center justify-between mb-3">
+              <span id="chart-title" class="text-[13px] font-medium text-[#1A2333]">รายได้ (จันทร์–อาทิตย์)</span>
+            </div>
+            
+            <div class="flex-1 flex items-center">
+              <div id="chart-container" class="flex items-end gap-[5px] w-full h-[110px] pb-1">
+                <div class="flex-1 flex flex-col items-center gap-[3px]"><span class="text-[9px] text-[#9AA3AE]">฿5.2k</span><div class="w-full rounded-t-[3px] h-[50px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Mon</div></div>
+                <div class="flex-1 flex flex-col items-center gap-[3px]"><span class="text-[9px] text-[#9AA3AE]">฿7.8k</span><div class="w-full rounded-t-[3px] h-[65px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Tue</div></div>
+                <div class="flex-1 flex flex-col items-center gap-[3px]"><span class="text-[9px] text-[#9AA3AE]">฿4.4k</span><div class="w-full rounded-t-[3px] h-[42px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Wed</div></div>
+                <div class="flex-1 flex flex-col items-center gap-[3px]"><span class="text-[9px] text-[#9AA3AE]">฿8.2k</span><div class="w-full rounded-t-[3px] h-[70px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Thu</div></div>
+                <div class="flex-1 flex flex-col items-center gap-[3px]"><span class="text-[9px] text-[#3D4A5C] font-medium">฿10.5k</span><div class="w-full rounded-t-[3px] h-[80px] bg-[#3D4A5C]"></div><div class="text-[10px] text-[#1A2333] font-medium">Fri</div></div>
+                <div class="flex-1 flex flex-col items-center gap-[3px]"><span class="text-[9px] text-[#9AA3AE]">฿8.1k</span><div class="w-full rounded-t-[3px] h-[74px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Sat</div></div>
+                <div class="flex-1 flex flex-col items-center gap-[3px]"><span class="text-[9px] text-[#9AA3AE]">฿4.1k</span><div class="w-full rounded-t-[3px] h-[55px] bg-[#D0D5DE]"></div><div class="text-[10px] text-[#9AA3AE]">Sun</div></div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[14px]">
+        
+        <a href="stock.html" class="bg-white border border-[#C8CDD6] rounded-xl py-3.5 px-4 flex flex-col group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
+          <div class="flex items-center justify-between mb-3 border-b border-[#E8EBF0] pb-2">
+            <span class="text-[13px] font-medium text-[#1A2333] flex items-center gap-1.5">
+              <svg class="w-4 h-4 stroke-[#6B7A8D]" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              แจ้งเตือนคลังสินค้า
+            </span>
+            <span class="text-[11px] text-[#6B7A8D] group-hover:text-[#3D4A5C]">ดูทั้งหมด →</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">French Fries (Frozen)</span>
+              <span class="text-[11px] bg-[#FCEBEB] text-[#E24B4A] px-1.5 py-0.5 rounded font-medium">Low: 5.0 kg</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">Burger Buns</span>
+              <span class="text-[11px] bg-[#FEF3E2] text-[#C96A00] px-1.5 py-0.5 rounded font-medium">Exp: 23 Apr</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">Seasonal Herbs</span>
+              <span class="text-[11px] bg-[#F9FAFB] border border-[#E8EBF0] text-[#9AA3AE] px-1.5 py-0.5 rounded font-medium">Empty: 0.0 g</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="waste.html" class="bg-white border border-[#C8CDD6] rounded-xl py-3.5 px-4 flex flex-col group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
+          <div class="flex items-center justify-between mb-3 border-b border-[#E8EBF0] pb-2">
+            <span class="text-[13px] font-medium text-[#1A2333] flex items-center gap-1.5">
+              <svg class="w-4 h-4 stroke-[#E24B4A]" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              ของเสียล่าสุด
+            </span>
+            <span class="text-[11px] text-[#6B7A8D] group-hover:text-[#3D4A5C]">ดูทั้งหมด →</span>
+          </div>
+          <div class="flex flex-col gap-2">
+             <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">Burger Buns <span class="text-[#9AA3AE] text-[10px] ml-1">(Expired)</span></span>
+              <span class="text-[11px] text-[#E24B4A] font-medium">-฿75.00</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-[12px] text-[#1A2333]">Zinger Burger <span class="text-[#9AA3AE] text-[10px] ml-1">(Mistake)</span></span>
+              <span class="text-[11px] text-[#E24B4A] font-medium">-฿90.00</span>
+            </div>
+            <div class="flex justify-between items-center pt-1 mt-1 border-t border-[#E8EBF0]">
+              <span class="text-[11px] text-[#6B7A8D] uppercase tracking-wider">ยอดรวมรายเดือน</span>
+              <span class="text-[12px] text-[#E24B4A] font-semibold">฿1,425.00</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="promotion.html" class="bg-white border border-[#C8CDD6] rounded-xl py-3.5 px-4 flex flex-col group hover:shadow-md hover:border-[#9AA3AE] transition-all cursor-pointer decoration-none text-inherit">
+          <div class="flex items-center justify-between mb-3 border-b border-[#E8EBF0] pb-2">
+            <span class="text-[13px] font-medium text-[#1A2333] flex items-center gap-1.5">
+              <svg class="w-4 h-4 stroke-[#1D9E75]" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+              ประสิทธิภาพโปรโมชัน
+            </span>
+            <span class="text-[11px] text-[#6B7A8D] group-hover:text-[#3D4A5C]">ดูทั้งหมด →</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+              <div class="flex flex-col">
+                <span class="text-[12px] font-medium text-[#1A2333]">WELCOME10</span>
+                <span class="text-[9px] text-[#9AA3AE]">145 Uses</span>
+              </div>
+              <span class="text-[11px] bg-[#E1F5EE] text-[#0F6E56] px-1.5 py-0.5 rounded font-medium">Active</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <div class="flex flex-col">
+                <span class="text-[12px] font-medium text-[#1A2333]">FREEFRIES</span>
+                <span class="text-[9px] text-[#9AA3AE]">82 Uses</span>
+              </div>
+              <span class="text-[11px] bg-[#FEF3E2] text-[#C96A00] px-1.5 py-0.5 rounded font-medium">Exp Soon</span>
+            </div>
+          </div>
+        </a>
+
       </div>
 
     </div>
@@ -476,61 +410,7 @@
   </div>
 </div>
 
-<script>
-  // --- Popup & Modal Logic ---
-  document.addEventListener('click', function(event) {
-    const popups = [
-      { btn: 'btn-notifications', popup: 'popup-notifications' },
-      { btn: 'btn-settings', popup: 'popup-settings' },
-      { btn: 'btn-profile', popup: 'popup-profile' }
-    ];
-
-    popups.forEach(p => {
-      const btn = document.getElementById(p.btn);
-      const popup = document.getElementById(p.popup);
-      if (btn && popup && !btn.contains(event.target) && !popup.contains(event.target)) {
-        popup.classList.add('hidden');
-      }
-    });
-  });
-
-  function togglePopup(id) {
-    const popupIds = ['popup-notifications', 'popup-settings', 'popup-profile'];
-    popupIds.forEach(popupId => {
-      if (popupId !== id) {
-        const popup = document.getElementById(popupId);
-        if(popup) popup.classList.add('hidden');
-      }
-    });
-    const targetPopup = document.getElementById(id);
-    if(targetPopup) targetPopup.classList.toggle('hidden');
-  }
-
-  function showLogoutAlert(e) {
-    e.preventDefault();
-    document.getElementById('logout-modal').classList.remove('hidden');
-  }
-
-  function closeLogoutAlert() {
-    document.getElementById('logout-modal').classList.add('hidden');
-  }
-
-  function toggleToggle(element) {
-    const bg = element.querySelector('.toggle-bg');
-    const dot = element.querySelector('.toggle-dot');
-    if(bg.classList.contains('bg-[#1D9E75]')) {
-      bg.classList.replace('bg-[#1D9E75]', 'bg-[#C8CDD6]');
-      dot.classList.remove('right-0.5');
-      dot.classList.add('left-0.5');
-    } else {
-      bg.classList.replace('bg-[#C8CDD6]', 'bg-[#1D9E75]');
-      dot.classList.remove('left-0.5');
-      dot.classList.add('right-0.5');
-    }
-  }
-</script>
-
-<div id="ai-chat-widget" class="fixed bottom-6 right-6 z-[1000] font-sans">
+<div id="ai-chat-widget" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1000] font-sans">
   <button id="ai-chat-fab" onclick="toggleChat('open')" class="w-16 h-16 bg-[#3D4A5C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
     <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
       <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"></path>
@@ -538,7 +418,7 @@
     <div class="absolute -top-1 -right-1 w-5 h-5 bg-[#E24B4A] border-2 border-white rounded-full flex items-center justify-center text-[10px] font-bold">1</div>
   </button>
 
-  <div id="ai-chat-window" class="hidden flex-col bg-white rounded-2xl shadow-2xl border border-[#C8CDD6] overflow-hidden transition-all duration-300 origin-bottom-right" style="width: 500px; height: 750px; max-height: 85vh; max-width: 90vw;">
+  <div id="ai-chat-window" class="hidden flex-col bg-white rounded-2xl shadow-2xl border border-[#C8CDD6] overflow-hidden transition-all duration-300 origin-bottom-right" style="width: 500px; height: 750px; max-height: 85vh; max-width: calc(100vw - 32px);">
     <div class="bg-[#3D4A5C] p-5 flex items-center justify-between text-white shrink-0 cursor-pointer" onclick="toggleChat('minimize')">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-inner">
@@ -595,6 +475,24 @@
 </div>
 
 <script>
+  // --- Mobile Sidebar Logic ---
+  function toggleMobileMenu() {
+    const sidebar = document.getElementById('sidebar-menu');
+    const overlay = document.getElementById('mobile-overlay');
+
+    if (sidebar.classList.contains('-translate-x-full')) {
+      // Open
+      sidebar.classList.remove('-translate-x-full');
+      overlay.classList.remove('hidden');
+      setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+    } else {
+      // Close
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('opacity-0');
+      setTimeout(() => overlay.classList.add('hidden'), 300);
+    }
+  }
+
   function toggleChat(action) {
     const fab = document.getElementById('ai-chat-fab');
     const window = document.getElementById('ai-chat-window');
@@ -658,5 +556,190 @@
     this.style.height = (this.scrollHeight) + 'px';
   });
 </script>
+
+<script>
+  // --- Popup & Modal Logic ---
+  document.addEventListener('click', function(event) {
+    const popups = [
+      { btn: 'btn-notifications', popup: 'popup-notifications' },
+      { btn: 'btn-settings', popup: 'popup-settings' },
+      { btn: 'btn-profile', popup: 'popup-profile' }
+    ];
+
+    popups.forEach(p => {
+      const btn = document.getElementById(p.btn);
+      const popup = document.getElementById(p.popup);
+      if (btn && popup && !btn.contains(event.target) && !popup.contains(event.target)) {
+        popup.classList.add('hidden');
+      }
+    });
+  });
+
+  function togglePopup(id) {
+    const popupIds = ['popup-notifications', 'popup-settings', 'popup-profile'];
+    popupIds.forEach(popupId => {
+      if (popupId !== id) {
+        const popup = document.getElementById(popupId);
+        if(popup) popup.classList.add('hidden');
+      }
+    });
+    const targetPopup = document.getElementById(id);
+    if(targetPopup) targetPopup.classList.toggle('hidden');
+  }
+
+  function showLogoutAlert(e) {
+    e.preventDefault();
+    document.getElementById('logout-modal').classList.remove('hidden');
+  }
+
+  function closeLogoutAlert() {
+    document.getElementById('logout-modal').classList.add('hidden');
+  }
+
+  function toggleToggle(element) {
+    const bg = element.querySelector('.toggle-bg');
+    const dot = element.querySelector('.toggle-dot');
+    if(bg.classList.contains('bg-[#1D9E75]')) {
+      bg.classList.replace('bg-[#1D9E75]', 'bg-[#C8CDD6]');
+      dot.classList.remove('right-0.5');
+      dot.classList.add('left-0.5');
+    } else {
+      bg.classList.replace('bg-[#C8CDD6]', 'bg-[#1D9E75]');
+      dot.classList.remove('left-0.5');
+      dot.classList.add('right-0.5');
+    }
+  }
+
+  // --- Dashboard Data Logic ---
+  const dashboardData = {
+    today: {
+      revenue: "฿9,420",
+      revenueChange: "↑ +5.2% เทียบกับเมื่อวาน",
+      revenueColor: "#1D9E75",
+      ordersLabel: "วันนี้",
+      orders: "87",
+      ordersChange: "↑ +8 เทียบกับเมื่อวาน",
+      ordersColor: "#1D9E75",
+      aov: "฿108",
+      aovChange: "↓ -1.5% เทียบกับเมื่อวาน",
+      aovColor: "#E24B4A",
+      chartTitle: "รายได้ (วันนี้รายชั่วโมง)",
+      chartBars: [
+        { label: "10am", val: "฿0.5k", height: "30px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "11am", val: "฿1.2k", height: "45px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "12pm", val: "฿2.8k", height: "70px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "1pm", val: "฿3.2k", height: "80px", color: "#3D4A5C", textClass: "text-[#1A2333] font-medium", valClass: "text-[#3D4A5C] font-medium" },
+        { label: "2pm", val: "฿1.2k", height: "55px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "3pm", val: "฿0.3k", height: "35px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "4pm", val: "฿0.1k", height: "20px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" }
+      ]
+    },
+    week: {
+      revenue: "฿48,320",
+      revenueChange: "↑ +12.4% เทียบกับสัปดาห์ที่แล้ว",
+      revenueColor: "#1D9E75",
+      ordersLabel: "สัปดาห์นี้",
+      orders: "345",
+      ordersChange: "↑ +12 เทียบกับสัปดาห์ที่แล้ว",
+      ordersColor: "#1D9E75",
+      aov: "฿140",
+      aovChange: "↓ -2.1% เทียบกับสัปดาห์ที่แล้ว",
+      aovColor: "#E24B4A",
+      chartTitle: "รายได้ (จันทร์–อาทิตย์)",
+      chartBars: [
+        { label: "Mon", val: "฿5.2k", height: "50px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "Tue", val: "฿7.8k", height: "65px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "Wed", val: "฿4.4k", height: "42px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "Thu", val: "฿8.2k", height: "70px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "Fri", val: "฿10.5k", height: "80px", color: "#3D4A5C", textClass: "text-[#1A2333] font-medium", valClass: "text-[#3D4A5C] font-medium" },
+        { label: "Sat", val: "฿8.1k", height: "74px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "Sun", val: "฿4.1k", height: "55px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" }
+      ]
+    },
+    month: {
+      revenue: "฿192,450",
+      revenueChange: "↑ +8.5% เทียบกับเดือนที่แล้ว",
+      revenueColor: "#1D9E75",
+      ordersLabel: "เดือนนี้",
+      orders: "1,420",
+      ordersChange: "↑ +45 เทียบกับเดือนที่แล้ว",
+      ordersColor: "#1D9E75",
+      aov: "฿135",
+      aovChange: "↑ +1.2% เทียบกับเดือนที่แล้ว",
+      aovColor: "#1D9E75",
+      chartTitle: "รายได้ (สัปดาห์ 1-4)",
+      chartBars: [
+        { label: "Wk 1", val: "฿42k", height: "60px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "Wk 2", val: "฿48k", height: "75px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" },
+        { label: "Wk 3", val: "฿55.4k", height: "80px", color: "#3D4A5C", textClass: "text-[#1A2333] font-medium", valClass: "text-[#3D4A5C] font-medium" },
+        { label: "Wk 4", val: "฿47k", height: "68px", color: "#D0D5DE", textClass: "text-[#9AA3AE] font-normal", valClass: "text-[#9AA3AE]" }
+      ]
+    }
+  };
+
+  const activeBtnClasses = "text-[12px] py-[5px] px-[11px] rounded-lg border border-[#B4BAC4] bg-[#D6DBE4] text-[#1A2333] font-medium cursor-pointer flex items-center gap-1.5 transition-colors whitespace-nowrap";
+  const inactiveBtnClasses = "text-[12px] py-[5px] px-[11px] rounded-lg border border-[#C8CDD6] bg-transparent text-[#6B7A8D] cursor-pointer hover:bg-[#E8EBF0] transition-colors whitespace-nowrap";
+  const activeIconHtml = `<svg class="w-[11px] h-[11px] fill-[#6B7A8D]" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>`;
+
+  function updateDashboard(period) {
+    const data = dashboardData[period];
+    
+    document.getElementById('metric-revenue').innerText = data.revenue;
+    const revChange = document.getElementById('metric-revenue-change');
+    revChange.innerText = data.revenueChange;
+    revChange.style.color = data.revenueColor;
+
+    document.getElementById('orders-label').innerText = data.ordersLabel;
+    document.getElementById('metric-orders').innerText = data.orders;
+    const ordChange = document.getElementById('metric-orders-change');
+    ordChange.innerText = data.ordersChange;
+    ordChange.style.color = data.ordersColor;
+
+    document.getElementById('metric-aov').innerText = data.aov;
+    const aovChange = document.getElementById('metric-aov-change');
+    aovChange.innerText = data.aovChange;
+    aovChange.style.color = data.aovColor;
+
+    document.getElementById('chart-title').innerText = data.chartTitle;
+    const chartContainer = document.getElementById('chart-container');
+    
+    chartContainer.innerHTML = ''; 
+    data.chartBars.forEach(bar => {
+      const barHtml = `
+        <div class="flex-1 flex flex-col items-center gap-[3px]">
+          <span class="text-[9px] ${bar.valClass}">${bar.val}</span>
+          <div class="w-full rounded-t-[3px] transition-all duration-300" style="height:${bar.height}; background-color:${bar.color};"></div>
+          <div class="text-[10px] ${bar.textClass}">${bar.label}</div>
+        </div>
+      `;
+      chartContainer.innerHTML += barHtml;
+    });
+
+    const btnToday = document.getElementById('btn-today');
+    const btnWeek = document.getElementById('btn-week');
+    const btnMonth = document.getElementById('btn-month');
+
+    btnToday.className = inactiveBtnClasses;
+    btnToday.innerHTML = "วันนี้";
+    
+    btnWeek.className = inactiveBtnClasses;
+    btnWeek.innerHTML = "สัปดาห์นี้";
+    
+    btnMonth.className = inactiveBtnClasses;
+    btnMonth.innerHTML = "เดือนนี้";
+
+    if (period === 'today') {
+      btnToday.className = activeBtnClasses;
+      btnToday.innerHTML = `วันนี้ ${activeIconHtml}`;
+    } else if (period === 'week') {
+      btnWeek.className = activeBtnClasses;
+      btnWeek.innerHTML = `สัปดาห์นี้ ${activeIconHtml}`;
+    } else if (period === 'month') {
+      btnMonth.className = activeBtnClasses;
+      btnMonth.innerHTML = `เดือนนี้ ${activeIconHtml}`;
+    }
+  }
+</script>
+
 </body>
 </html>
