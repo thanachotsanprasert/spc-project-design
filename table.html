@@ -251,7 +251,7 @@
       </div>
     </div>
 
-    <div class="flex-1 overflow-y-auto p-3 sm:p-[18px] grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4 items-start content-start">
+    <div class="flex-1 overflow-y-auto p-4 sm:p-[18px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-4 content-start">
       
       <div class="table-card bg-white border-t-4 border-t-[#0F6E56] border-x border-b border-[#C8CDD6] rounded-xl flex flex-col shadow-sm overflow-hidden">
         <div class="bg-[#E1F5EE]/40 p-2.5 sm:p-3.5 flex justify-between items-start gap-1">
@@ -656,30 +656,30 @@
       </button>
     </div>
 
-    <div class="flex-1 overflow-y-auto p-8 flex flex-col md:flex-row gap-8">
-      <div class="w-full md:w-1/3 flex flex-col gap-6">
-        <div class="bg-white border border-[#C8CDD6] p-5 rounded-xl">
+    <div class="flex-1 overflow-y-auto p-4 sm:p-8 flex flex-col lg:flex-row gap-4 sm:gap-8">
+      <div class="w-full lg:w-1/3 flex flex-col gap-4 sm:gap-6">
+        <div class="bg-white border border-[#C8CDD6] p-4 sm:p-5 rounded-xl">
             <span class="text-[11px] uppercase tracking-wider text-[#9AA3AE] font-bold">Status</span>
-            <div id="modal-status-badge" class="mt-2 text-lg font-bold flex items-center gap-2"></div>
-            <div id="modal-timer" class="mt-4 flex items-center gap-2 text-sm text-[#E24B4A] font-medium"></div>
+            <div id="modal-status-badge" class="mt-1 sm:mt-2 text-base sm:text-lg font-bold flex items-center gap-2"></div>
+            <div id="modal-timer" class="mt-3 sm:mt-4 flex items-center gap-2 text-xs sm:text-sm text-[#E24B4A] font-medium"></div>
         </div>
         <div class="flex flex-col gap-2">
-            <button id="modal-primary-action" class="w-full py-4 bg-[#3D4A5C] text-white rounded-xl font-bold text-lg hover:brightness-110 transition-all shadow-md cursor-pointer"></button>
-            <button class="w-full py-3 border border-[#C8CDD6] text-[#6B7A8D] rounded-xl font-medium hover:bg-[#F9FAFB] transition-all cursor-pointer">Transfer Table</button>
+            <button id="modal-primary-action" class="w-full py-3 sm:py-4 bg-[#3D4A5C] text-white rounded-xl font-bold text-base sm:text-lg hover:brightness-110 transition-all shadow-md cursor-pointer"></button>
+            <button class="w-full py-2.5 sm:py-3 border border-[#C8CDD6] text-[#6B7A8D] rounded-xl font-medium text-sm sm:text-base hover:bg-[#F9FAFB] transition-all cursor-pointer">Transfer Table</button>
         </div>
       </div>
 
-      <div id="modal-order-section" class="flex-1 bg-[#F9FAFB] border border-[#E8EBF0] rounded-2xl p-6">
-        <div class="flex justify-between items-center mb-6">
-            <h3 class="text-lg font-bold" id="modal-order-id">Order #----</h3>
-            <button class="text-sm text-blue-600 font-medium hover:underline cursor-pointer">+ Add Items</button>
+      <div id="modal-order-section" class="flex-1 bg-[#F9FAFB] border border-[#E8EBF0] rounded-2xl p-4 sm:p-6">
+        <div class="flex justify-between items-center mb-4 sm:mb-6">
+            <h3 class="text-base sm:text-lg font-bold" id="modal-order-id">Order #----</h3>
+            <button class="text-xs sm:text-sm text-blue-600 font-medium hover:underline cursor-pointer">+ Add Items</button>
         </div>
-        <div id="modal-items-list" class="space-y-4">
+        <div id="modal-items-list" class="space-y-3 sm:space-y-4">
         </div>
-        <div class="mt-8 pt-6 border-t border-[#D6DBE4] space-y-2">
-            <div class="flex justify-between text-[#6B7A8D]"><span>Subtotal</span><span id="modal-subtotal">฿0</span></div>
-            <div class="flex justify-between text-[#6B7A8D]"><span>Service Charge (10%)</span><span id="modal-service">฿0</span></div>
-            <div class="flex justify-between text-2xl font-bold text-[#1A2333] mt-2"><span>Total</span><span id="modal-total">฿0</span></div>
+        <div class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#D6DBE4] space-y-1.5 sm:space-y-2">
+            <div class="flex justify-between text-xs sm:text-sm text-[#6B7A8D]"><span>Subtotal</span><span id="modal-subtotal">฿0</span></div>
+            <div class="flex justify-between text-xs sm:text-sm text-[#6B7A8D]"><span>Service Charge (10%)</span><span id="modal-service">฿0</span></div>
+            <div class="flex justify-between text-xl sm:text-2xl font-bold text-[#1A2333] mt-2"><span>Total</span><span id="modal-total">฿0</span></div>
         </div>
       </div>
     </div>
